@@ -1,4 +1,4 @@
-package homeWork.introduction;
+package other.introduction;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
