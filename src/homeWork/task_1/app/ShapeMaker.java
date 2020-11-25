@@ -69,7 +69,7 @@ public class ShapeMaker {
         if (isLine(inputShapes)) {
             logic = new LineLogic();
 
-            shapes = (Line[]) logic.createArrayOfShape(inputShapes);
+           shapes = (Line[]) logic.createArrayOfShape(inputShapes);
 
         } else if (isTriangle(inputShapes)){
             logic = new TriangleLogic();

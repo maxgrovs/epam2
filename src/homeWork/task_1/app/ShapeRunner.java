@@ -22,13 +22,9 @@ public class ShapeRunner {
         Shape square = shapeMaker.fetchShape(new Point(6, 2), new Point(3, 4),
                 new Point(4,2), new Point(1,3));
 
+        Line[] lines = (Line[]) shapeMaker.createArrayOfShape(line1, line2);
 
-
-
-
-        Line[] lines =  shapeMaker.createArrayOfShape(line1, line2);
-
-        Triangle[] triangles = createArrayOfTriangles(triangle1, triangle2);
+        Triangle[] triangles = (Triangle[]) shapeMaker.createArrayOfShape(triangle1, triangle2);
 
 
 
