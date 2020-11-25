@@ -1,10 +1,6 @@
-package homeWork.task_1.app;
+package homeWork.task_1.logic;
 
 import homeWork.task_0.model.Point;
-import homeWork.task_1.logic.LineLogic;
-import homeWork.task_1.logic.ShapeLogic;
-import homeWork.task_1.logic.SquareLogic;
-import homeWork.task_1.logic.TriangleLogic;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
@@ -69,17 +65,17 @@ public class ShapeMaker {
         if (isLine(inputShapes)) {
             logic = new LineLogic();
 
-           shapes = (Line[]) logic.createArrayOfShape(inputShapes);
+           shapes = logic.createArrayOfShape(inputShapes);
 
         } else if (isTriangle(inputShapes)){
             logic = new TriangleLogic();
 
-            shapes = (Triangle[]) logic.createArrayOfShape(inputShapes);
+            shapes = logic.createArrayOfShape(inputShapes);
 
         }else if (isSquare(inputShapes)){
             logic = new SquareLogic();
 
-            shapes = (Square[]) logic.createArrayOfShape(inputShapes);
+            shapes = logic.createArrayOfShape(inputShapes);
         }
 
 
