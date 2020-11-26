@@ -30,8 +30,9 @@ public class ShapeRunner {
 
         Shape[] squares = shapeLogic.createArrayOfShape(square);
 
-        shapeLogic.writeLogOfPoints(points);
+        //shapeLogic.writeLogOfPoints(points);
 
+        shapeLogic.writeLogOfShape(lines);
 
 
 

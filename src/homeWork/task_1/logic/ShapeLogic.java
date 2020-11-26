@@ -5,6 +5,9 @@ import homeWork.task_1.logic.factory.concretFactory.LineFactory;
 import homeWork.task_1.logic.factory.ShapeFactory;
 import homeWork.task_1.logic.factory.concretFactory.SquareFactory;
 import homeWork.task_1.logic.factory.concretFactory.TriangleFactory;
+import homeWork.task_1.logic.validate.ShapeValidator;
+import homeWork.task_1.logic.view.ShapeView;
+import homeWork.task_1.logic.view.concreteView.LineView;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
@@ -17,8 +20,7 @@ public class ShapeLogic {
 
     private static Logger logger = LogManager.getLogger(ShapeLogic.class);
 
-
-    public ShapeFactory logic;
+    private ShapeValidator validator;
 
     public Shape fetchShape(Point... input) {
         Shape shape = null;
@@ -38,54 +40,27 @@ public class ShapeLogic {
         return shape;
     }
 
-    public boolean isLine(Shape... inputShapes) {
-
-        boolean b = false;
-
-        for (Shape shape : inputShapes) {
-            b = shape instanceof Line;
-        }
-        return b;
-    }
-
-    public boolean isTriangle(Shape... inputShapes) {
-
-        boolean b = false;
-
-        for (Shape shape : inputShapes) {
-            b = shape instanceof Triangle;
-        }
-        return b;
-    }
-
-    public boolean isSquare(Shape... inputShapes) {
-
-        boolean b = false;
-
-        for (Shape shape : inputShapes) {
-            b = shape instanceof Square;
-        }
-        return b;
-    }
 
     public Shape[] createArrayOfShape(Shape... inputShapes) {
 
-        Shape [] shapes = null;
+        Shape[] shapes = null;
 
-        if (isLine(inputShapes)) {
-            logic = new LineFactory();
+        ShapeFactory factory;
 
-           shapes = logic.createArrayOfShape(inputShapes);
+        if (validator.isLine(inputShapes)) {
+            factory = new LineFactory();
 
-        } else if (isTriangle(inputShapes)){
-            logic = new TriangleFactory();
+            shapes = factory.createArrayOfShape(inputShapes);
 
-            shapes = logic.createArrayOfShape(inputShapes);
+        } else if (validator.isTriangle(inputShapes)) {
+            factory = new TriangleFactory();
 
-        }else if (isSquare(inputShapes)){
-            logic = new SquareFactory();
+            shapes = factory.createArrayOfShape(inputShapes);
 
-            shapes = logic.createArrayOfShape(inputShapes);
+        } else if (validator.isSquare(inputShapes)) {
+            factory = new SquareFactory();
+
+            shapes = factory.createArrayOfShape(inputShapes);
         }
 
 
@@ -100,6 +75,15 @@ public class ShapeLogic {
         } while (i < points.length);
     }
 
+    public void writeLogOfShape(Shape[] shapes) {
 
+        ShapeView view;
+
+        if (validator.isLine(shapes)) {
+            view = new LineView();
+            view.print(shapes);
+        }
+
+    }
 
 }
