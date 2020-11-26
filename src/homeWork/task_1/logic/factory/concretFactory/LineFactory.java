@@ -1,10 +1,11 @@
-package homeWork.task_1.logic;
+package homeWork.task_1.logic.factory.concretFactory;
 
+import homeWork.task_1.logic.factory.ShapeFactory;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 
 
-public class LineLogic implements ShapeLogic {
+public class LineFactory implements ShapeFactory {
 
     @Override
     public Shape[] createArrayOfShape(Shape... inputShape) {
