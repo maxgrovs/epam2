@@ -1,9 +1,13 @@
 package homeWork.task_1.logic.validate;
+
 import homeWork.task_1.logic.PointLogic;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
 import homeWork.task_1.model.Triangle;
+import org.apache.logging.log4j.core.util.ArrayUtils;
+
+import java.util.Arrays;
 
 public class ShapeValidator {
 
@@ -27,7 +31,7 @@ public class ShapeValidator {
         return b;
     }
 
-    public boolean isSquares(Shape... inputShapes) {
+    public boolean isQuadrangles(Shape... inputShapes) {
 
         boolean b = false;
 
@@ -47,7 +51,7 @@ public class ShapeValidator {
         double sideB = 0;
         double sideC = 0;
 
-        if (shape instanceof Triangle){
+        if (shape instanceof Triangle) {
             triangle = (Triangle) shape;
         }
 
@@ -57,7 +61,7 @@ public class ShapeValidator {
             sideC = logic.calculateDistanceBetweenPoints(triangle.getPoints()[2], triangle.getPoints()[0]);
         }
 
-       return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
+        return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
     public boolean isSquare(Shape shape) {
@@ -67,25 +71,37 @@ public class ShapeValidator {
         Square square = null;
 
         double sideA = 0;
-        double sideB = 0;
-        double sideC = 0;
-        double sideD = 0;
+        double diagonal = 0;
 
-        if (shape instanceof Square){
+        if (shape instanceof Square) {
             square = (Square) shape;
         }
 
         if (square != null) {
-            sideA = logic.calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]);
-            sideB = logic.calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[2]);
-            sideC = logic.calculateDistanceBetweenPoints(square.getPoints()[2], square.getPoints()[3]);
-            sideD = logic.calculateDistanceBetweenPoints(square.getPoints()[3], square.getPoints()[0]);
+            sideA = logic.calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]) * 1000;
+            diagonal = logic.calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[3]) * 1000;
+
         }
 
-        return sideA == sideB && sideB == sideC && sideC == sideD;
+        return (int) diagonal == (int) (Math.sqrt(2) * sideA);
+    }
+
+
+    public void isUnique(Shape [] shapes){
+
+
+
+                    System.out.println(shapes[0].equals(shapes[1]));
+
+
+
+            }
+
+
+
+
+       //return result;
     }
 
 
 
-
-}

@@ -21,13 +21,13 @@ public class ShapeRunner {
         Point[] points = {new Point(3, 4), new Point(5, 6), new Point(6, 7), new Point(8, 9)};
 
         Shape line1 = shapeLogic.fetchShape(new Point(1, 2), new Point(3, 4));
-        Shape line2 = shapeLogic.fetchShape(new Point(2, 2), new Point(3, 4));
+        Shape line2 = shapeLogic.fetchShape(new Point(1, 2), new Point(3, 4));
 
         Shape triangle1 = shapeLogic.fetchShape(new Point(1, 2), new Point(1, 2), new Point(4, 2));
         Shape triangle2 = shapeLogic.fetchShape(new Point(6, 2), new Point(3, 4), new Point(4, 2));
 
-        Shape square = shapeLogic.fetchShape(new Point(6, 2), new Point(3, 4),
-                new Point(4, 2), new Point(1, 3));
+        Shape square = shapeLogic.fetchShape(new Point(1, 1), new Point(1, 4),
+                new Point(4, 4), new Point(5, 1));
 
         Shape[] lines = shapeLogic.createArrayOfShape(line1, line2);
 
@@ -37,11 +37,15 @@ public class ShapeRunner {
 
        // shapeLogic.writeLogOfPoints(points);
 
-        shapeLogic.writeLogOfShape(triangles);
+       // shapeLogic.writeLogOfShape(triangles);
+
+       // shapeLogic.writeLogOfShape(squares);
 
         //System.out.println(validator.isTriangleExist(triangle1));
 
+        //System.out.println(validator.isSquare(square));
 
+        validator.isUnique(lines);
 
     }
 

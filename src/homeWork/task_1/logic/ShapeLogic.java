@@ -8,6 +8,7 @@ import homeWork.task_1.logic.factory.concretFactory.TriangleFactory;
 import homeWork.task_1.logic.validate.ShapeValidator;
 import homeWork.task_1.logic.view.ShapeView;
 import homeWork.task_1.logic.view.concreteView.LineView;
+import homeWork.task_1.logic.view.concreteView.SquareView;
 import homeWork.task_1.logic.view.concreteView.TriangleView;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
@@ -60,7 +61,7 @@ public class ShapeLogic {
 
             shapes = factory.createArrayOfShape(inputShapes);
 
-        } else if (validator.isSquares(inputShapes)) {
+        } else if (validator.isQuadrangles(inputShapes)) {
             factory = new SquareFactory();
 
             shapes = factory.createArrayOfShape(inputShapes);
@@ -78,10 +79,6 @@ public class ShapeLogic {
         } while (i < points.length);
     }
 
-
-
-
-
     public void writeLogOfShape(Shape[] shapes) {
 
         ShapeView view;
@@ -94,6 +91,11 @@ public class ShapeLogic {
             view = new TriangleView();
             view.print(shapes);
         }
+        if (validator.isQuadrangles(shapes)) {
+            view = new SquareView();
+            view.print(shapes);
+        }
+
 
     }
 
