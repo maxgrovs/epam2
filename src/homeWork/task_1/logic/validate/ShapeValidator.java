@@ -1,5 +1,5 @@
 package homeWork.task_1.logic.validate;
-
+import homeWork.task_1.logic.PointLogic;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
@@ -7,7 +7,7 @@ import homeWork.task_1.model.Triangle;
 
 public class ShapeValidator {
 
-    public boolean isLine(Shape... inputShapes) {
+    public boolean isLines(Shape... inputShapes) {
 
         boolean b = false;
 
@@ -17,7 +17,7 @@ public class ShapeValidator {
         return b;
     }
 
-    public boolean isTriangle(Shape... inputShapes) {
+    public boolean isTriangles(Shape... inputShapes) {
 
         boolean b = false;
 
@@ -27,7 +27,7 @@ public class ShapeValidator {
         return b;
     }
 
-    public boolean isSquare(Shape... inputShapes) {
+    public boolean isSquares(Shape... inputShapes) {
 
         boolean b = false;
 
@@ -35,6 +35,29 @@ public class ShapeValidator {
             b = shape instanceof Square;
         }
         return b;
+    }
+
+    public boolean isTriangleExist(Shape shape) {
+
+        PointLogic logic = new PointLogic();
+
+        Triangle triangle = null;
+
+        double sideA = 0;
+        double sideB = 0;
+        double sideC = 0;
+
+        if (shape instanceof Triangle){
+            triangle = (Triangle) shape;
+        }
+
+        if (triangle != null) {
+            sideA = logic.calculateDistanceBetweenPoints(triangle.getPoints()[0], triangle.getPoints()[1]);
+            sideB = logic.calculateDistanceBetweenPoints(triangle.getPoints()[1], triangle.getPoints()[2]);
+            sideC = logic.calculateDistanceBetweenPoints(triangle.getPoints()[2], triangle.getPoints()[0]);
+        }
+
+       return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
 }

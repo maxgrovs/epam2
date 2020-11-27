@@ -8,6 +8,7 @@ import homeWork.task_1.logic.factory.concretFactory.TriangleFactory;
 import homeWork.task_1.logic.validate.ShapeValidator;
 import homeWork.task_1.logic.view.ShapeView;
 import homeWork.task_1.logic.view.concreteView.LineView;
+import homeWork.task_1.logic.view.concreteView.TriangleView;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
@@ -49,17 +50,17 @@ public class ShapeLogic {
 
         ShapeFactory factory;
 
-        if (validator.isLine(inputShapes)) {
+        if (validator.isLines(inputShapes)) {
             factory = new LineFactory();
 
             shapes = factory.createArrayOfShape(inputShapes);
 
-        } else if (validator.isTriangle(inputShapes)) {
+        } else if (validator.isTriangles(inputShapes)) {
             factory = new TriangleFactory();
 
             shapes = factory.createArrayOfShape(inputShapes);
 
-        } else if (validator.isSquare(inputShapes)) {
+        } else if (validator.isSquares(inputShapes)) {
             factory = new SquareFactory();
 
             shapes = factory.createArrayOfShape(inputShapes);
@@ -85,8 +86,12 @@ public class ShapeLogic {
 
         ShapeView view;
 
-        if (validator.isLine(shapes)) {
+        if (validator.isLines(shapes)) {
             view = new LineView();
+            view.print(shapes);
+        }
+        if (validator.isTriangles(shapes)) {
+            view = new TriangleView();
             view.print(shapes);
         }
 

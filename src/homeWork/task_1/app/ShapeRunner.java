@@ -2,6 +2,7 @@ package homeWork.task_1.app;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_1.logic.ShapeLogic;
+import homeWork.task_1.logic.validate.ShapeValidator;
 import homeWork.task_1.model.Shape;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +12,9 @@ public class ShapeRunner {
 
     public static void main(String[] args) {
 
-        System.out.println("jfjfj");
+        ShapeValidator validator = new ShapeValidator();
+
+
 
         ShapeLogic shapeLogic = new ShapeLogic();
 
@@ -20,7 +23,7 @@ public class ShapeRunner {
         Shape line1 = shapeLogic.fetchShape(new Point(1, 2), new Point(3, 4));
         Shape line2 = shapeLogic.fetchShape(new Point(2, 2), new Point(3, 4));
 
-        Shape triangle1 = shapeLogic.fetchShape(new Point(1, 2), new Point(3, 4), new Point(4, 2));
+        Shape triangle1 = shapeLogic.fetchShape(new Point(1, 2), new Point(1, 2), new Point(4, 2));
         Shape triangle2 = shapeLogic.fetchShape(new Point(6, 2), new Point(3, 4), new Point(4, 2));
 
         Shape square = shapeLogic.fetchShape(new Point(6, 2), new Point(3, 4),
@@ -30,26 +33,17 @@ public class ShapeRunner {
 
         Shape[] triangles = shapeLogic.createArrayOfShape(triangle1, triangle2);
 
-        System.out.println();
-
         Shape[] squares = shapeLogic.createArrayOfShape(square);
 
-        shapeLogic.writeLogOfPoints(points);
+       // shapeLogic.writeLogOfPoints(points);
 
-        shapeLogic.writeLogOfShape(lines);
+        shapeLogic.writeLogOfShape(triangles);
 
+        //System.out.println(validator.isTriangleExist(triangle1));
 
-
-    }
-
-    public static void writeLogOfShapes(Shape[] shapes) {
-
-        for (Shape shape :
-                shapes) {
-            logger.info(shape.toString());
-        }
 
 
     }
+
 }
 
