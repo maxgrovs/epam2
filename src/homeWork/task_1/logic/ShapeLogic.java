@@ -20,7 +20,7 @@ public class ShapeLogic {
 
     private static Logger logger = LogManager.getLogger(ShapeLogic.class);
 
-    private ShapeValidator validator;
+    private ShapeValidator validator = new ShapeValidator();
 
     public Shape fetchShape(Point... input) {
         Shape shape = null;
