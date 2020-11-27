@@ -1,7 +1,5 @@
 package homeWork.task_1.logic.view.concreteView;
 
-import homeWork.task_0.model.Point;
-import homeWork.task_1.logic.ShapeLogic;
 import homeWork.task_1.logic.view.ShapeView;
 import homeWork.task_1.model.Shape;
 import org.apache.logging.log4j.LogManager;
