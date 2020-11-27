@@ -11,6 +11,8 @@ public class ShapeRunner {
 
     public static void main(String[] args) {
 
+        System.out.println();
+
         ShapeLogic shapeLogic = new ShapeLogic();
 
         Point[] points = {new Point(3, 4), new Point(5, 6), new Point(6, 7), new Point(8, 9)};

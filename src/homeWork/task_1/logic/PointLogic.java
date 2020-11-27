@@ -8,6 +8,8 @@ public class PointLogic {
 
     private static Logger logger = LogManager.getLogger(PointLogic.class);
 
+
+
     public void print(Point[] points) {
         int i = 0;
 
