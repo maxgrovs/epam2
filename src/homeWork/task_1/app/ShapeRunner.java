@@ -28,9 +28,11 @@ public class ShapeRunner {
 
         Shape[] triangles = shapeLogic.createArrayOfShape(triangle1, triangle2);
 
+        System.out.println();
+
         Shape[] squares = shapeLogic.createArrayOfShape(square);
 
-        //shapeLogic.writeLogOfPoints(points);
+        shapeLogic.writeLogOfPoints(points);
 
         shapeLogic.writeLogOfShape(lines);
 

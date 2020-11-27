@@ -20,7 +20,9 @@ public class ShapeLogic {
 
     private static Logger logger = LogManager.getLogger(ShapeLogic.class);
 
-    private ShapeValidator validator;
+    private ShapeValidator validator = new ShapeValidator();
+
+    private PointLogic pointLogic = new PointLogic();
 
     public Shape fetchShape(Point... input) {
         Shape shape = null;
@@ -74,6 +76,10 @@ public class ShapeLogic {
             logger.info(points[i++].toString());
         } while (i < points.length);
     }
+
+
+
+
 
     public void writeLogOfShape(Shape[] shapes) {
 
