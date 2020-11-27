@@ -82,7 +82,10 @@ public class ShapeValidator {
             sideD = logic.calculateDistanceBetweenPoints(square.getPoints()[3], square.getPoints()[0]);
         }
 
-        return sideA = sideB && sideB = sideC && sideC = sideD + sideC > sideA;
+        return sideA == sideB && sideB == sideC && sideC == sideD;
     }
+
+
+
 
 }
