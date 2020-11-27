@@ -60,4 +60,29 @@ public class ShapeValidator {
        return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
+    public boolean isSquare(Shape shape) {
+
+        PointLogic logic = new PointLogic();
+
+        Square square = null;
+
+        double sideA = 0;
+        double sideB = 0;
+        double sideC = 0;
+        double sideD = 0;
+
+        if (shape instanceof Square){
+            square = (Square) shape;
+        }
+
+        if (square != null) {
+            sideA = logic.calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]);
+            sideB = logic.calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[2]);
+            sideC = logic.calculateDistanceBetweenPoints(square.getPoints()[2], square.getPoints()[3]);
+            sideD = logic.calculateDistanceBetweenPoints(square.getPoints()[3], square.getPoints()[0]);
+        }
+
+        return sideA = sideB && sideB = sideC && sideC = sideD + sideC > sideA;
+    }
+
 }
