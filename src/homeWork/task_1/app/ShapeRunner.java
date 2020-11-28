@@ -38,7 +38,7 @@ public class ShapeRunner {
 
        // shapeLogic.writeLogOfPoints(points);
 
-        shapeLogic.writeLogOfShape(triangles);
+       // shapeLogic.writeLogOfShape(triangles);
 
        // shapeLogic.writeLogOfShape(squares);
 

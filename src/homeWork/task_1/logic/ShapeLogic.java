@@ -2,7 +2,7 @@ package homeWork.task_1.logic;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_1.logic.factory.concretFactory.LineFactory;
-import homeWork.task_1.logic.factory.ShapeFactory;
+import homeWork.task_1.logic.factory.ShapesArrayFactory;
 import homeWork.task_1.logic.factory.concretFactory.SquareFactory;
 import homeWork.task_1.logic.factory.concretFactory.TriangleFactory;
 import homeWork.task_1.logic.validate.ShapeValidator;
@@ -25,6 +25,7 @@ public class ShapeLogic {
     private ShapeValidator validator = new ShapeValidator();
 
     private PointLogic pointLogic = new PointLogic();
+
 
     public Shape fetchShape(Point... input) {
         Shape shape = null;
@@ -49,7 +50,7 @@ public class ShapeLogic {
 
         Shape[] shapes = null;
 
-        ShapeFactory factory;
+        ShapesArrayFactory factory;
 
         if (validator.isLines(inputShapes)) {
             factory = new LineFactory();
