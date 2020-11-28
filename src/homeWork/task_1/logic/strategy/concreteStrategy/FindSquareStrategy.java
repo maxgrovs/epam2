@@ -10,6 +10,12 @@ import homeWork.task_1.model.Triangle;
 
 public class FindSquareStrategy implements Strategy {
 
+    private static final FindSquareStrategy INSTANCE = new FindSquareStrategy();
+
+    public static FindSquareStrategy getInstance() {
+        return INSTANCE;
+    }
+
 
     @Override
     public double calc(Shape inputShape) {

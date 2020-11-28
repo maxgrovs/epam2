@@ -11,6 +11,11 @@ import homeWork.task_1.model.Triangle;
 
 public class FindPerimeterStrategy implements Strategy {
 
+    private static final FindPerimeterStrategy INSTANCE = new FindPerimeterStrategy();
+
+    public static FindPerimeterStrategy getInstance() {
+        return INSTANCE;
+    }
 
     @Override
     public double calc(Shape inputShape) {
