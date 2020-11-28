@@ -11,9 +11,20 @@ import homeWork.task_1.model.Triangle;
 
 public class FindPerimeterStrategy implements Strategy {
 
+    private static FindPerimeterStrategy instance;
+
+    public static synchronized FindPerimeterStrategy getInstanceLazy() {
+        if (instance == null) {
+            instance = new FindPerimeterStrategy();
+        }
+        return instance;
+    }
+
+
+
     private static final FindPerimeterStrategy INSTANCE = new FindPerimeterStrategy();
 
-    public static FindPerimeterStrategy getInstance() {
+    public static FindPerimeterStrategy getInstanceSimple() {
         return INSTANCE;
     }
 

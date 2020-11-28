@@ -2,6 +2,7 @@ package homeWork.task_1.app;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_1.logic.ShapeLogic;
+import homeWork.task_1.logic.strategy.concreteStrategy.FindPerimeterStrategy;
 import homeWork.task_1.logic.validate.ShapeValidator;
 import homeWork.task_1.model.Shape;
 import org.apache.logging.log4j.LogManager;
@@ -44,7 +45,6 @@ public class ShapeRunner {
         //System.out.println(validator.isTriangleExist(triangle1));
 
         //System.out.println(validator.isSquare(square));
-
 
 
     }

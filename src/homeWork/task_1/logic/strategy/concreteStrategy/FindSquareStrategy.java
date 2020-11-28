@@ -8,14 +8,9 @@ import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
 import homeWork.task_1.model.Triangle;
 
-public class FindSquareStrategy implements Strategy {
+public enum  FindSquareStrategy implements Strategy {
 
-    private static final FindSquareStrategy INSTANCE = new FindSquareStrategy();
-
-    public static FindSquareStrategy getInstance() {
-        return INSTANCE;
-    }
-
+    INSTANCE;
 
     @Override
     public double calc(Shape inputShape) {
