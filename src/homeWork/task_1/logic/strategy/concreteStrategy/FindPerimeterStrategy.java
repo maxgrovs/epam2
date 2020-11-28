@@ -3,17 +3,24 @@ package homeWork.task_1.logic.strategy.concreteStrategy;
 import homeWork.task_0.model.Point;
 import homeWork.task_1.logic.PointLogic;
 import homeWork.task_1.logic.strategy.Strategy;
+import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
 import homeWork.task_1.model.Triangle;
 
 
 public class FindPerimeterStrategy implements Strategy {
+
+
     @Override
     public double calc(Shape inputShape) {
         PointLogic logic = new PointLogic();
 
         double result = 0;
+
+        if (inputShape instanceof Line){
+            System.out.println("Линия не имеет периметра!");
+        }
 
         if (inputShape instanceof Triangle) {
 
