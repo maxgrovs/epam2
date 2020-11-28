@@ -19,10 +19,17 @@ public class SquareView implements ShapeView {
         for (Shape shape :
                 shapes) {
 
-            if (validator.isSquare(shape)){
-                logger.info(shape.toString());
-            }else
-                logger.error("Объект " + shape + " не является квадратом!");
+            if (validator.isUniquePoints(shape)){
+                if (validator.isSquare(shape)){
+                    logger.info(shape.toString());
+                }else
+                    logger.error("Объект " + shape + " не является квадратом!");
+            }else {
+
+                logger.error("Объект " + shape.toString() + " не является фигурой Square");
+            }
+
+
 
         }
 

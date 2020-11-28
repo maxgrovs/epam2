@@ -19,10 +19,16 @@ public class TriangleView implements ShapeView {
         for (Shape shape :
                 shapes) {
 
-            if (validator.isTriangleExist(shape)){
-                logger.info(shape.toString());
-            }else
-                logger.error("Треугольник " + shape + " не может существовать!");
+            if (validator.isUniquePoints(shape)){
+
+                if (validator.isTriangleExist(shape)){
+                    logger.info(shape.toString());
+                }else
+                    logger.error("Треугольник " + shape + " не может существовать!");
+
+            }else logger.error("Объект " + shape.toString() + " не является фигурой Triangle");
+
+
 
         }
 

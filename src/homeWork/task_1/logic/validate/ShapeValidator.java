@@ -1,13 +1,11 @@
 package homeWork.task_1.logic.validate;
 
+import homeWork.task_0.model.Point;
 import homeWork.task_1.logic.PointLogic;
 import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
 import homeWork.task_1.model.Square;
 import homeWork.task_1.model.Triangle;
-import org.apache.logging.log4j.core.util.ArrayUtils;
-
-import java.util.Arrays;
 
 public class ShapeValidator {
 
@@ -87,21 +85,48 @@ public class ShapeValidator {
     }
 
 
-    public void isUnique(Shape [] shapes){
+    public boolean isUniquePoints(Shape inputShape) {
+
+        boolean result = true;
+
+        Line line = null;
+        Triangle triangle = null;
+        Square square = null;
+
+        Point[] points = new Point[0];
+
+        if (inputShape instanceof Line) {
+            line = (Line) inputShape;
+
+            points = line.getPoints();
+
+        }
+        if (inputShape instanceof Triangle) {
+            triangle = (Triangle) inputShape;
+
+            points = triangle.getPoints();
+
+        }
+        if (inputShape instanceof Square) {
+            square = (Square) inputShape;
+
+            points = square.getPoints();
+
+        }
 
 
+        for (int i = 1; i < points.length; i++) {
 
-                    System.out.println(shapes[0].equals(shapes[1]));
-
-
-
+            if (points[0].equals(points[i])) {
+                result = false;
             }
 
 
+        }
 
-
-       //return result;
+        return result;
     }
+}
 
 
 

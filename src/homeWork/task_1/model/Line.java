@@ -8,6 +8,9 @@ public class Line implements Shape {
 
     private Point [] points;
 
+    public Line() {
+    }
+
     public Line(Point[] points) {
         this.points = points;
     }
