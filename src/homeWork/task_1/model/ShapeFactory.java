@@ -9,6 +9,7 @@ public class ShapeFactory {
     }
 
     private static final ShapeFactory INSTANCE = new ShapeFactory();
+
     public static ShapeFactory getInstance() {
         return INSTANCE;
     }
@@ -37,15 +38,9 @@ public class ShapeFactory {
                 shape = fetchTriangleFromCashOrCreate(points);
                 break;
             case 4:
-                ShapeValidator validator = new ShapeValidator();
-                Square square = new Square(points);
-
-                if (validator.isSquare(square)){
-                    shape = fetchSquareFromCashOrCreate(points);
-                }else
-                    shape = fetchMultiAngleFigureFromCashOrCreate(points);
+                shape = fetchSquareFromCashOrCreate(points);
                 break;
-            case 5|6:
+            case 4 | 5 | 6:
                 shape = fetchMultiAngleFigureFromCashOrCreate(points);
                 break;
         }
