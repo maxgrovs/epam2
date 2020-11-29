@@ -1,6 +1,7 @@
 package homeWork.task_1.model;
 
 import homeWork.task_0.model.Point;
+import homeWork.task_1.logic.validate.ShapeValidator;
 
 public class ShapeFactory {
 
@@ -15,12 +16,15 @@ public class ShapeFactory {
     private static Line[] allCreatedLines = new Line[4];
     private static Triangle[] allCreatedTriangles = new Triangle[4];
     private static Square[] allCreatedSquares = new Square[4];
+    private static MultiAngleFigure[] allCreatedMultiAngleFigure = new MultiAngleFigure[4];
 
     private static int amountOfLines = 0;
     private static int amountOfTriangles = 0;
+    private static int amountOfMultiAngleFigure = 0;
 
 
     public Shape createShape(Point... points) {
+
 
         Shape shape = null;
 
@@ -33,7 +37,16 @@ public class ShapeFactory {
                 shape = fetchTriangleFromCashOrCreate(points);
                 break;
             case 4:
-                shape = fetchSquareFromCashOrCreate(points);
+                ShapeValidator validator = new ShapeValidator();
+                Square square = new Square(points);
+
+                if (validator.isSquare(square)){
+                    shape = fetchSquareFromCashOrCreate(points);
+                }else
+                    shape = fetchMultiAngleFigureFromCashOrCreate(points);
+                break;
+            case 5|6:
+                shape = fetchMultiAngleFigureFromCashOrCreate(points);
                 break;
         }
 
@@ -67,15 +80,29 @@ public class ShapeFactory {
     }
 
     private Shape fetchSquareFromCashOrCreate(Point... points) {
+
         for (Square square : allCreatedSquares) {
             if (square != null && square.getPoints() == points) {
                 return square;
             }
         }
+
         final Square square = new Square(points);
         allCreatedSquares[0] = square;
 
         return square;
+    }
+
+    private Shape fetchMultiAngleFigureFromCashOrCreate(Point... points) {
+        for (MultiAngleFigure multiAngleFigure : allCreatedMultiAngleFigure) {
+            if (multiAngleFigure != null && multiAngleFigure.getPoints() == points) {
+                return multiAngleFigure;
+            }
+        }
+        final MultiAngleFigure multiAngleFigure = new MultiAngleFigure(points);
+        allCreatedMultiAngleFigure[amountOfMultiAngleFigure] = multiAngleFigure;
+        amountOfMultiAngleFigure++;
+        return multiAngleFigure;
     }
 
 }
