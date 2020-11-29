@@ -10,10 +10,7 @@ import homeWork.task_1.logic.view.ShapeView;
 import homeWork.task_1.logic.view.concreteView.LineView;
 import homeWork.task_1.logic.view.concreteView.SquareView;
 import homeWork.task_1.logic.view.concreteView.TriangleView;
-import homeWork.task_1.model.Line;
 import homeWork.task_1.model.Shape;
-import homeWork.task_1.model.Square;
-import homeWork.task_1.model.Triangle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,26 +22,6 @@ public class ShapeLogic {
     private ShapeValidator validator = new ShapeValidator();
 
     private PointLogic pointLogic = new PointLogic();
-
-
-    public Shape fetchShape(Point... input) {
-        Shape shape = null;
-
-        switch (input.length) {
-            case 2:
-                shape = new Line(input);
-                break;
-            case 3:
-                shape = new Triangle(input);
-                break;
-            case 4:
-                shape = new Square(input);
-                break;
-        }
-
-        return shape;
-    }
-
 
     public Shape[] createArrayOfShape(Shape... inputShapes) {
 

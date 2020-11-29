@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 public class Triangle implements Shape {
 
-    private Point [] points;
+    private Point[] points;
 
-    public Triangle(Point[] points) {
+    Triangle(Point[] points) {
         this.points = points;
     }
 

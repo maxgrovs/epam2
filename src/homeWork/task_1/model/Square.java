@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 public class Square implements Shape {
 
-    private Point [] points;
+    private Point[] points;
 
-    public Square(Point[] points) {
+    Square(Point[] points) {
         this.points = points;
     }
 

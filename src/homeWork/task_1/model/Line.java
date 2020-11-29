@@ -6,12 +6,9 @@ import java.util.Arrays;
 
 public class Line implements Shape {
 
-    private Point [] points;
+    private Point[] points;
 
-    public Line() {
-    }
-
-    public Line(Point[] points) {
+    Line(Point[] points) {
         this.points = points;
     }
 

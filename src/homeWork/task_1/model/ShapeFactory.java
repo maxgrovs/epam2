@@ -1,7 +1,6 @@
-package testApp.model.shape.impl;
+package homeWork.task_1.model;
 
 import homeWork.task_0.model.Point;
-import testApp.model.shape.Shape;
 
 public class ShapeFactory {
 
@@ -13,9 +12,9 @@ public class ShapeFactory {
         return INSTANCE;
     }
 
-    private static Line[] allCreatedLines = new Line[2];
-    private static Triangle[] allCreatedTriangles = new Triangle[2];
-    private static Square[] allCreatedSquares = new Square[1];
+    private static Line[] allCreatedLines = new Line[4];
+    private static Triangle[] allCreatedTriangles = new Triangle[4];
+    private static Square[] allCreatedSquares = new Square[4];
 
     private static int amountOfLines = 0;
     private static int amountOfTriangles = 0;
