@@ -23,9 +23,7 @@ public class ShapeFactory {
     private static int amountOfTriangles = 0;
     private static int amountOfMultiAngleFigure = 0;
 
-
     public Shape createShape(Point... points) {
-
 
         Shape shape = null;
 
