@@ -94,7 +94,6 @@ public class FigureFactory {
                 return multiAngleFigure;
             }
         }
-
         final MultiAngleFigure multiAngleFigure = new MultiAngleFigure(points);
         allCreatedMultiAngleFigure[amountOfMultiAngleFigure] = multiAngleFigure;
         amountOfMultiAngleFigure++;
