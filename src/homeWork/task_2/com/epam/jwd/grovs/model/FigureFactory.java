@@ -1,6 +1,8 @@
 package homeWork.task_2.com.epam.jwd.grovs.model;
 
 import homeWork.task_0.model.Point;
+import homeWork.task_2.com.epam.jwd.grovs.exception.FigureException;
+import homeWork.task_2.com.epam.jwd.grovs.service.PreProcessor;
 
 public class FigureFactory {
 
@@ -13,6 +15,8 @@ public class FigureFactory {
         return INSTANCE;
     }
 
+    private PreProcessor preProcessor = new PreProcessor();
+
     private static Line[] allCreatedLines = new Line[4];
     private static Triangle[] allCreatedTriangles = new Triangle[4];
     private static Square[] allCreatedSquares = new Square[4];
@@ -22,7 +26,7 @@ public class FigureFactory {
     private static int amountOfTriangles = 0;
     private static int amountOfMultiAngleFigure = 0;
 
-    public Figure createFigure(Point... points) {
+    public Figure createFigure(Point... points){
 
         Figure figure = null;
 
@@ -43,6 +47,15 @@ public class FigureFactory {
             default:
                 System.out.println("Фигуру создать не получится!");
                 break;
+        }
+
+
+        try {
+            figure = preProcessor.process(figure);
+        } catch (FigureException e) {
+
+            System.out.println("The figure has the same points! " + "Please enter correct features!");
+
         }
 
         final Figure result = figure;
