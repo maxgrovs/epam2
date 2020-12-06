@@ -10,9 +10,10 @@ public class FigureRunner {
 
         FigureFactory factory = FigureFactory.getInstance();
 
-        Figure figure = factory.createFigure(new Point(1, 2), new Point(1, 2));
+        Figure figure = factory.createFigure(new Point(1, 0), new Point(0, 1), new Point(1, 0));
 
         System.out.println(figure);
+
     }
 
 }

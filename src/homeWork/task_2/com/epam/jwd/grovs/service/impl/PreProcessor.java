@@ -1,17 +1,19 @@
-package homeWork.task_2.com.epam.jwd.grovs.service;
+package homeWork.task_2.com.epam.jwd.grovs.service.impl;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_2.com.epam.jwd.grovs.exception.FigureException;
+import homeWork.task_2.com.epam.jwd.grovs.exception.FigurePointException;
 import homeWork.task_2.com.epam.jwd.grovs.model.Figure;
 import homeWork.task_2.com.epam.jwd.grovs.model.Line;
 import homeWork.task_2.com.epam.jwd.grovs.model.Square;
 import homeWork.task_2.com.epam.jwd.grovs.model.Triangle;
+import homeWork.task_2.com.epam.jwd.grovs.service.FigurePostProcessor;
 
-public class PreProcessor implements FigureProcessor {
+public class PreProcessor implements FigurePostProcessor {
 
 
     @Override
-    public Figure process(Figure figure) throws FigureException {
+    public Figure process(Figure figure) throws FigurePointException {
 
         boolean result = true;
 
@@ -47,16 +49,15 @@ public class PreProcessor implements FigureProcessor {
                 result = false;
             }
 
-
         }
 
-        if (result){
+        if (result) {
 
             return figure;
 
-        }else {
+        } else {
 
-            throw new  FigureException("The figure has the same points!");
+            throw new FigurePointException("The figure has the same points!");
 
         }
     }
