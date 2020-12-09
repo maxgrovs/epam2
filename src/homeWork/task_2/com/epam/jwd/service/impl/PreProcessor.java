@@ -1,13 +1,12 @@
-package homeWork.task_2.com.epam.jwd.grovs.service.impl;
+package homeWork.task_2.com.epam.jwd.service.impl;
 
 import homeWork.task_0.model.Point;
-import homeWork.task_2.com.epam.jwd.grovs.exception.FigureException;
-import homeWork.task_2.com.epam.jwd.grovs.exception.FigurePointException;
-import homeWork.task_2.com.epam.jwd.grovs.model.Figure;
-import homeWork.task_2.com.epam.jwd.grovs.model.Line;
-import homeWork.task_2.com.epam.jwd.grovs.model.Square;
-import homeWork.task_2.com.epam.jwd.grovs.model.Triangle;
-import homeWork.task_2.com.epam.jwd.grovs.service.FigurePostProcessor;
+import homeWork.task_2.com.epam.jwd.exception.FigurePointException;
+import homeWork.task_2.com.epam.jwd.model.Figure;
+import homeWork.task_2.com.epam.jwd.model.Line;
+import homeWork.task_2.com.epam.jwd.model.Square;
+import homeWork.task_2.com.epam.jwd.model.Triangle;
+import homeWork.task_2.com.epam.jwd.service.FigurePostProcessor;
 
 public class PreProcessor implements FigurePostProcessor {
 

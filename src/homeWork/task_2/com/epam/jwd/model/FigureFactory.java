@@ -1,10 +1,10 @@
-package homeWork.task_2.com.epam.jwd.grovs.model;
+package homeWork.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
-import homeWork.task_2.com.epam.jwd.grovs.exception.FigureException;
-import homeWork.task_2.com.epam.jwd.grovs.exception.FigureNotExistException;
-import homeWork.task_2.com.epam.jwd.grovs.service.impl.PostProcessor;
-import homeWork.task_2.com.epam.jwd.grovs.service.impl.PreProcessor;
+import homeWork.task_2.com.epam.jwd.exception.FigureException;
+import homeWork.task_2.com.epam.jwd.exception.FigureNotExistException;
+import homeWork.task_2.com.epam.jwd.service.impl.PostProcessor;
+import homeWork.task_2.com.epam.jwd.service.impl.PreProcessor;
 
 public class FigureFactory {
 

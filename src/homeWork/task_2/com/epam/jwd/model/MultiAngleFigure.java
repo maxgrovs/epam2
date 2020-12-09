@@ -1,14 +1,14 @@
-package homeWork.task_2.com.epam.jwd.grovs.model;
+package homeWork.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
 
 import java.util.Arrays;
 
-public class Square implements Figure {
+public class MultiAngleFigure implements Figure {
 
     private Point[] points;
 
-    Square(Point[] points) {
+    MultiAngleFigure(Point[] points) {
         this.points = points;
     }
 
@@ -16,16 +16,12 @@ public class Square implements Figure {
         return points;
     }
 
-    public void setPoints(Point[] points) {
-        this.points = points;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Square square = (Square) o;
-        return Arrays.equals(points, square.points);
+        MultiAngleFigure that = (MultiAngleFigure) o;
+        return Arrays.equals(points, that.points);
     }
 
     @Override
@@ -35,7 +31,7 @@ public class Square implements Figure {
 
     @Override
     public String toString() {
-        return "Square{" +
+        return "MultiAngleFigure{" +
                 "points=" + Arrays.toString(points) +
                 '}';
     }

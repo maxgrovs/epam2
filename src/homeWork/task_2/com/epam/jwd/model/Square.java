@@ -1,14 +1,14 @@
-package homeWork.task_2.com.epam.jwd.grovs.model;
+package homeWork.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
 
 import java.util.Arrays;
 
-public class Line implements Figure {
+public class Square implements Figure {
 
     private Point[] points;
 
-    Line(Point[] points) {
+    Square(Point[] points) {
         this.points = points;
     }
 
@@ -16,13 +16,16 @@ public class Line implements Figure {
         return points;
     }
 
+    public void setPoints(Point[] points) {
+        this.points = points;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Line line = (Line) o;
-        return Arrays.equals(points, line.points);
+        Square square = (Square) o;
+        return Arrays.equals(points, square.points);
     }
 
     @Override
@@ -32,7 +35,7 @@ public class Line implements Figure {
 
     @Override
     public String toString() {
-        return "Line{" +
+        return "Square{" +
                 "points=" + Arrays.toString(points) +
                 '}';
     }

@@ -1,14 +1,14 @@
-package homeWork.task_2.com.epam.jwd.grovs.model;
+package homeWork.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
 
 import java.util.Arrays;
 
-public class Triangle implements Figure {
+public class Line implements Figure {
 
     private Point[] points;
 
-    Triangle(Point[] points) {
+    Line(Point[] points) {
         this.points = points;
     }
 
@@ -16,17 +16,13 @@ public class Triangle implements Figure {
         return points;
     }
 
-    public void setPoints(Point[] points) {
-        this.points = points;
-    }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Triangle triangle = (Triangle) o;
-        return Arrays.equals(points, triangle.points);
+        Line line = (Line) o;
+        return Arrays.equals(points, line.points);
     }
 
     @Override
@@ -36,7 +32,7 @@ public class Triangle implements Figure {
 
     @Override
     public String toString() {
-        return "Triangle{" +
+        return "Line{" +
                 "points=" + Arrays.toString(points) +
                 '}';
     }

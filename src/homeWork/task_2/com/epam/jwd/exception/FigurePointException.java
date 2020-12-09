@@ -1,4 +1,4 @@
-package homeWork.task_2.com.epam.jwd.grovs.exception;
+package homeWork.task_2.com.epam.jwd.exception;
 
 public class FigurePointException extends FigureException {
 
