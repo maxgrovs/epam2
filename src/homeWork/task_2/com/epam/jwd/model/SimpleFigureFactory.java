@@ -2,8 +2,8 @@ package homeWork.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_2.com.epam.jwd.exception.FigureException;
-import homeWork.task_2.com.epam.jwd.factoryyyyyyyy.FigureFactory;
-import homeWork.task_2.com.epam.jwd.factoryyyyyyyy.FigureType;
+import homeWork.task_2.com.epam.jwd.factory.FigureFactory;
+import homeWork.task_2.com.epam.jwd.factory.FigureType;
 
 public class SimpleFigureFactory implements FigureFactory {
 

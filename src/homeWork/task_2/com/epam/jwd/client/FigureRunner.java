@@ -1,10 +1,10 @@
 package homeWork.task_2.com.epam.jwd.client;
 
 import homeWork.task_0.model.Point;
-import homeWork.task_2.com.epam.jwd.decoratorrrrrrrr.PostProcessing;
-import homeWork.task_2.com.epam.jwd.decoratorrrrrrrr.PreProcessing;
+import homeWork.task_2.com.epam.jwd.decorator.PostProcessing;
+import homeWork.task_2.com.epam.jwd.decorator.PreProcessing;
 import homeWork.task_2.com.epam.jwd.exception.FigureException;
-import homeWork.task_2.com.epam.jwd.factoryyyyyyyy.FigureType;
+import homeWork.task_2.com.epam.jwd.factory.FigureType;
 import homeWork.task_2.com.epam.jwd.model.Figure;
 import homeWork.task_2.com.epam.jwd.model.SimpleFigureFactory;
 

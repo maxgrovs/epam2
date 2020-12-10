@@ -1,4 +1,4 @@
-package homeWork.task_2.com.epam.jwd.factoryyyyyyyy;
+package homeWork.task_2.com.epam.jwd.factory;
 
 import homeWork.task_0.model.Point;
 import homeWork.task_2.com.epam.jwd.exception.FigureException;

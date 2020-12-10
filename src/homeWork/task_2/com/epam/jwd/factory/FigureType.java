@@ -1,4 +1,4 @@
-package homeWork.task_2.com.epam.jwd.factoryyyyyyyy;
+package homeWork.task_2.com.epam.jwd.factory;
 
 public enum FigureType {
 
