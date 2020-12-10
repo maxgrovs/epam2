@@ -6,6 +6,6 @@ import homeWork.task_2.com.epam.jwd.model.Figure;
 
 public interface FigureFactory {
 
-    Figure createFigure(FigureType type, Point [] figureConstituents) throws FigureException;
+    Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException;
 
 }

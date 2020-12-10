@@ -14,7 +14,6 @@ public class SimpleFigureFactory implements FigureFactory {
 
     private static int amountOfLines = 0;
     private static int amountOfTriangles = 0;
-    private static int amountOfMultiAngleFigure = 0;
 
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
@@ -36,12 +35,11 @@ public class SimpleFigureFactory implements FigureFactory {
                 break;
 
             default:
-                System.out.println("Please enter correct features!");
-                break;
+                throw new FigureException("Please enter correct features!");
 
         }
 
-        return null;
+        return figure;
     }
 
 

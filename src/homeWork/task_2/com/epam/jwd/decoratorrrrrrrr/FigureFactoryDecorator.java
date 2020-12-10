@@ -8,12 +8,15 @@ import homeWork.task_2.com.epam.jwd.model.Figure;
 
 public class FigureFactoryDecorator implements FigureFactory {
 
+    private FigureFactory factory;
+
+    public FigureFactoryDecorator(FigureFactory factory) {
+        this.factory = factory;
+    }
 
     @Override
     public Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException {
 
-
-
-        return null;
+        return factory.createFigure(type, figureConstituents);
     }
 }
