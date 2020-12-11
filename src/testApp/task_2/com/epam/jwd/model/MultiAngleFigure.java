@@ -1,37 +1,27 @@
-package testApp.model.shape.impl;
+package testApp.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
-import testApp.model.shape.Shape;
 
 import java.util.Arrays;
 
-public class Line implements Shape {
+public class MultiAngleFigure implements Figure {
 
     private Point[] points;
 
-    Line() {
-    }
-
-    Line(Point[] points) {
-
+    MultiAngleFigure(Point[] points) {
         this.points = points;
-
     }
 
     public Point[] getPoints() {
         return points;
     }
 
-    public void setPoints(Point[] points) {
-        this.points = points;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Line line = (Line) o;
-        return Arrays.equals(points, line.points);
+        MultiAngleFigure that = (MultiAngleFigure) o;
+        return Arrays.equals(points, that.points);
     }
 
     @Override
@@ -41,7 +31,7 @@ public class Line implements Shape {
 
     @Override
     public String toString() {
-        return "Line{" +
+        return "MultiAngleFigure{" +
                 "points=" + Arrays.toString(points) +
                 '}';
     }

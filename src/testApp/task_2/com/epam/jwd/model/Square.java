@@ -1,15 +1,14 @@
-package testApp.model.shape.impl;
+package testApp.task_2.com.epam.jwd.model;
 
 import homeWork.task_0.model.Point;
-import testApp.model.shape.Shape;
 
 import java.util.Arrays;
 
-public class Square implements Shape {
+public class Square implements Figure {
 
-    private Point [] points;
+    private Point[] points;
 
-    public Square(Point[] points) {
+    Square(Point[] points) {
         this.points = points;
     }
 
