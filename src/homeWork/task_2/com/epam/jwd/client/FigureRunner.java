@@ -21,10 +21,9 @@ public class FigureRunner {
         Figure figure = null;
 
         try {
-            figure = postProcessing.process(postProcessing.createFigure(FigureType.LINE,
-                    new Point(1, 2), new Point(1, 2)));
 
-
+            figure = postProcessing.process(postProcessing.createFigure(FigureType.TRIANGLE,
+                    new Point(1, 2), new Point(2, 2), new Point(3,3)));
 
         } catch (FigureException e) {
 
