@@ -1,11 +1,9 @@
 package newTask.com.epam.jwd.service.impl;
 
 
-
 import newTask.com.epam.jwd.exception.FigureNotExistException;
 import newTask.com.epam.jwd.model.*;
 import newTask.com.epam.jwd.service.FigurePostProcessor;
-import newTask.com.epam.jwd.view.PointLogic;
 
 public class PostProcessor implements FigurePostProcessor {
 
@@ -53,8 +51,6 @@ public class PostProcessor implements FigurePostProcessor {
 
     public boolean isTriangleExist(Figure figure) {
 
-        PointLogic logic = new PointLogic();
-
         Triangle triangle = null;
 
         double sideA = 0;
@@ -66,17 +62,15 @@ public class PostProcessor implements FigurePostProcessor {
         }
 
         if (triangle != null) {
-            sideA = logic.calculateDistanceBetweenPoints(triangle.getPoints()[0], triangle.getPoints()[1]);
-            sideB = logic.calculateDistanceBetweenPoints(triangle.getPoints()[1], triangle.getPoints()[2]);
-            sideC = logic.calculateDistanceBetweenPoints(triangle.getPoints()[2], triangle.getPoints()[0]);
+            sideA = calculateDistanceBetweenPoints(triangle.getPoints()[0], triangle.getPoints()[1]);
+            sideB = calculateDistanceBetweenPoints(triangle.getPoints()[1], triangle.getPoints()[2]);
+            sideC = calculateDistanceBetweenPoints(triangle.getPoints()[2], triangle.getPoints()[0]);
         }
 
         return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
     public boolean isSquareExist(Figure figure) {
-
-        PointLogic logic = new PointLogic();
 
         Square square = null;
 
@@ -88,12 +82,20 @@ public class PostProcessor implements FigurePostProcessor {
         }
 
         if (square != null) {
-            sideA = logic.calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]) * 1000;
-            diagonal = logic.calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[3]) * 1000;
+            sideA = calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]) * 1000;
+            diagonal = calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[3]) * 1000;
 
         }
 
         return (int) diagonal == (int) (Math.sqrt(2) * sideA);
+    }
+
+    public double calculateDistanceBetweenPoints(Point a, Point b) {
+
+        double ac = Math.abs(b.getY() - a.getY());
+        double cb = Math.abs(b.getX() - a.getX());
+
+        return Math.hypot(ac, cb);
     }
 
 }
