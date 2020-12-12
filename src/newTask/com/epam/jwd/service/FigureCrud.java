@@ -8,6 +8,6 @@ public interface FigureCrud<T extends Figure> {
 
     List<T> findAll();
 
-    void save(T figure);
+    void create(T figure);
 
 }

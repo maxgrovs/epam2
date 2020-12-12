@@ -5,7 +5,7 @@ import newTask.com.epam.jwd.service.FigureCrud;
 
 import java.util.List;
 
-public class SquareService<Square> implements FigureCrud {
+public class TriangleService<Triangle> implements FigureCrud {
 
     @Override
     public List findAll() {
@@ -16,4 +16,6 @@ public class SquareService<Square> implements FigureCrud {
     public void create(Figure figure) {
 
     }
+
+
 }
