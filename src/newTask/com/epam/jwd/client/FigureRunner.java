@@ -15,7 +15,8 @@ public class FigureRunner {
 
         FigureFactoryDecorator processing = new PostProcessing(new PreProcessing(new SimpleFigureFactory()));
 
-        Figure figure = processing.createFigure(FigureType.LINE, new Point(1, 2), new Point(1, 3));
+        Figure figure = processing.createFigure(FigureType.TRIANGLE,
+                new Point(1, 2), new Point(1, 2), new Point(1, 4));
 
         System.out.println(figure);
 

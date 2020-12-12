@@ -19,6 +19,7 @@ public class PreProcessing extends FigureFactoryDecorator {
         System.out.println("Running preProcessing!");
 
         return preProcess(super.createFigure(type, figureConstituents));
+
     }
 
     public Figure preProcess(Figure figure) throws FigurePointException {
@@ -46,14 +47,12 @@ public class PreProcessing extends FigureFactoryDecorator {
 
         }
 
-
         for (int i = 1; i < points.length; i++) {
 
             if (points[0].equals(points[i])) {
                 result = false;
                 break;
             }
-
         }
 
         if (result) {
@@ -63,7 +62,6 @@ public class PreProcessing extends FigureFactoryDecorator {
         } else {
 
             throw new FigurePointException("The figure has the same points!");
-
         }
     }
 

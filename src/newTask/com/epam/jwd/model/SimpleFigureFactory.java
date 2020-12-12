@@ -5,6 +5,9 @@ import newTask.com.epam.jwd.exception.FigureException;
 import newTask.com.epam.jwd.factory.FigureFactory;
 import newTask.com.epam.jwd.factory.FigureType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimpleFigureFactory implements FigureFactory {
 
     /*private SimpleFigureFactory() {
@@ -17,14 +20,11 @@ public class SimpleFigureFactory implements FigureFactory {
     }*/
 
 
-    private static Line[] allCreatedLines = new Line[4];
+    private static List<Line> lineStorage = new ArrayList<>();
 
-    private static Triangle[] allCreatedTriangles = new Triangle[4];
-    private static Square[] allCreatedSquares = new Square[4];
+    private static List<Triangle> triangleStorage = new ArrayList<>();
 
-    private static int amountOfLines = 0;
-
-    private static int amountOfTriangles = 0;
+    private static List<Square> squareStorage = new ArrayList<>();
 
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
@@ -58,39 +58,42 @@ public class SimpleFigureFactory implements FigureFactory {
 
 
     private Figure fetchLineFromCashOrCreate(Point... points) {
-        for (Line line : allCreatedLines) {
+        for (Line line : lineStorage) {
             if (line != null && line.getPoints() == points) {
                 return line;
             }
         }
         final Line line = new Line(points);
-        allCreatedLines[amountOfLines] = line;
-        amountOfLines++;
+
+        lineStorage.add(line);
+
         return line;
     }
 
     private Figure fetchTriangleFromCashOrCreate(Point... points) {
-        for (Triangle triangle : allCreatedTriangles) {
+        for (Triangle triangle : triangleStorage) {
             if (triangle != null && triangle.getPoints() == points) {
                 return triangle;
             }
         }
         final Triangle triangle = new Triangle(points);
-        allCreatedTriangles[amountOfTriangles] = triangle;
-        amountOfTriangles++;
+
+        triangleStorage.add(triangle);
+
         return triangle;
     }
 
     private Figure fetchSquareFromCashOrCreate(Point... points) {
 
-        for (Square square : allCreatedSquares) {
+        for (Square square : squareStorage) {
             if (square != null && square.getPoints() == points) {
                 return square;
             }
         }
 
         final Square square = new Square(points);
-        allCreatedSquares[0] = square;
+
+        squareStorage.add(square);
 
         return square;
     }
