@@ -1,4 +1,4 @@
-package newTask.com.epam.jwd.service.storage;
+package newTask.com.epam.jwd.storage.impl;
 
 import newTask.com.epam.jwd.model.Figure;
 

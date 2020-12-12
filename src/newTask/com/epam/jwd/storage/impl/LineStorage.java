@@ -1,7 +1,6 @@
-package newTask.com.epam.jwd.service.storage.impl;
+package newTask.com.epam.jwd.storage.impl;
 
 import newTask.com.epam.jwd.model.Line;
-import newTask.com.epam.jwd.service.storage.FigureStorage;
 
 import java.util.List;
 import java.util.Objects;
