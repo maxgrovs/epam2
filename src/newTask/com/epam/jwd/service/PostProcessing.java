@@ -1,13 +1,25 @@
-package newTask.com.epam.jwd.service.impl;
+package newTask.com.epam.jwd.service;
 
-
+import newTask.com.epam.jwd.exception.FigureException;
 import newTask.com.epam.jwd.exception.FigureNotExistException;
+import newTask.com.epam.jwd.factory.FigureFactory;
+import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.*;
-import newTask.com.epam.jwd.service.FigurePostProcessor;
 
-public class PostProcessor implements FigurePostProcessor {
+public class PostProcessing extends FigureFactoryDecorator {
+
+    public PostProcessing(FigureFactory factory) {
+        super(factory);
+    }
 
     @Override
+    public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
+
+        System.out.println("Running postProcessing!");
+        return process(super.createFigure(type, figureConstituents)) ;
+
+    }
+
     public Figure process(Figure figure) throws FigureNotExistException {
 
         boolean result = true;
@@ -21,6 +33,7 @@ public class PostProcessor implements FigurePostProcessor {
 
                 if (points[0].equals(points[i])) {
                     result = false;
+                    break;
                 }
             }
 
@@ -49,7 +62,7 @@ public class PostProcessor implements FigurePostProcessor {
         }
     }
 
-    public boolean isTriangleExist(Figure figure) {
+    private boolean isTriangleExist(Figure figure) {
 
         Triangle triangle = null;
 
@@ -70,7 +83,7 @@ public class PostProcessor implements FigurePostProcessor {
         return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
-    public boolean isSquareExist(Figure figure) {
+    private boolean isSquareExist(Figure figure) {
 
         Square square = null;
 
@@ -90,7 +103,7 @@ public class PostProcessor implements FigurePostProcessor {
         return (int) diagonal == (int) (Math.sqrt(2) * sideA);
     }
 
-    public double calculateDistanceBetweenPoints(Point a, Point b) {
+    private double calculateDistanceBetweenPoints(Point a, Point b) {
 
         double ac = Math.abs(b.getY() - a.getY());
         double cb = Math.abs(b.getX() - a.getX());

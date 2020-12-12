@@ -1,15 +1,27 @@
-package newTask.com.epam.jwd.service.impl;
+package newTask.com.epam.jwd.service;
 
 
+import newTask.com.epam.jwd.exception.FigureException;
 import newTask.com.epam.jwd.exception.FigurePointException;
+import newTask.com.epam.jwd.factory.FigureFactory;
+import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.*;
-import newTask.com.epam.jwd.service.FigurePostProcessor;
 
-public class PreProcessor implements FigurePostProcessor {
+public class PreProcessing extends FigureFactoryDecorator {
 
+    public PreProcessing(FigureFactory factory) {
+        super(factory);
+    }
 
     @Override
-    public Figure process(Figure figure) throws FigurePointException {
+    public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
+
+        System.out.println("Running preProcessing!");
+
+        return preProcess(super.createFigure(type, figureConstituents));
+    }
+
+    public Figure preProcess(Figure figure) throws FigurePointException {
 
         boolean result = true;
 
@@ -39,6 +51,7 @@ public class PreProcessor implements FigurePostProcessor {
 
             if (points[0].equals(points[i])) {
                 result = false;
+                break;
             }
 
         }
@@ -53,4 +66,5 @@ public class PreProcessor implements FigurePostProcessor {
 
         }
     }
+
 }
