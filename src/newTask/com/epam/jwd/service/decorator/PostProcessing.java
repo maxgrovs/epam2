@@ -1,4 +1,4 @@
-package newTask.com.epam.jwd.service;
+package newTask.com.epam.jwd.service.decorator;
 
 import newTask.com.epam.jwd.exception.FigureException;
 import newTask.com.epam.jwd.exception.FigureNotExistException;

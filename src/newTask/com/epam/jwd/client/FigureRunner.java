@@ -5,9 +5,9 @@ import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.Figure;
 import newTask.com.epam.jwd.model.Point;
 import newTask.com.epam.jwd.model.SimpleFigureFactory;
-import newTask.com.epam.jwd.service.FigureFactoryDecorator;
-import newTask.com.epam.jwd.service.PostProcessing;
-import newTask.com.epam.jwd.service.PreProcessing;
+import newTask.com.epam.jwd.service.decorator.FigureFactoryDecorator;
+import newTask.com.epam.jwd.service.decorator.PostProcessing;
+import newTask.com.epam.jwd.service.decorator.PreProcessing;
 
 public class FigureRunner {
 
