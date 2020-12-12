@@ -11,16 +11,6 @@ import java.util.List;
 
 public class SimpleFigureFactory implements FigureFactory {
 
-    /*private SimpleFigureFactory() {
-    }
-
-    private static final SimpleFigureFactory INSTANCE = new SimpleFigureFactory();
-
-    public static SimpleFigureFactory getInstance() {
-        return INSTANCE;
-    }*/
-
-
     private static List<Line> lineStorage = new ArrayList<>();
 
     private static List<Triangle> triangleStorage = new ArrayList<>();
@@ -61,6 +51,7 @@ public class SimpleFigureFactory implements FigureFactory {
     private Figure fetchLineFromCashOrCreate(Point... points) {
 
         List<Point> pointList = Arrays.asList(points);
+
         for (Line line : lineStorage) {
             if (line != null && line.getPoints().equals(pointList)) {
                 return line;
@@ -74,12 +65,15 @@ public class SimpleFigureFactory implements FigureFactory {
     }
 
     private Figure fetchTriangleFromCashOrCreate(Point... points) {
+
+        List<Point> pointList = Arrays.asList(points);
+
         for (Triangle triangle : triangleStorage) {
-            if (triangle != null && triangle.getPoints() == points) {
+            if (triangle != null && triangle.getPoints().equals(pointList)) {
                 return triangle;
             }
         }
-        final Triangle triangle = new Triangle(points);
+        final Triangle triangle = new Triangle(pointList);
 
         triangleStorage.add(triangle);
 
@@ -88,13 +82,15 @@ public class SimpleFigureFactory implements FigureFactory {
 
     private Figure fetchSquareFromCashOrCreate(Point... points) {
 
+        List<Point> pointList = Arrays.asList(points);
+
         for (Square square : squareStorage) {
-            if (square != null && square.getPoints() == points) {
+            if (square != null && square.getPoints().equals(pointList)) {
                 return square;
             }
         }
 
-        final Square square = new Square(points);
+        final Square square = new Square(pointList);
 
         squareStorage.add(square);
 

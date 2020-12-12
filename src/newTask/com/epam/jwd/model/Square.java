@@ -1,17 +1,17 @@
 package newTask.com.epam.jwd.model;
 
-
-import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class Square implements Figure {
 
-    private Point[] points;
+    private List<Point> points;
 
-    Square(Point[] points) {
+    public Square(List<Point> points) {
         this.points = points;
     }
 
-    public Point[] getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
 
@@ -20,18 +20,18 @@ public class Square implements Figure {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Square square = (Square) o;
-        return Arrays.equals(points, square.points);
+        return Objects.equals(points, square.points);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(points);
+        return Objects.hash(points);
     }
 
     @Override
     public String toString() {
         return "Square{" +
-                "points=" + Arrays.toString(points) +
+                "points=" + points +
                 '}';
     }
 }
