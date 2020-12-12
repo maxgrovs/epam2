@@ -20,7 +20,7 @@ public class SimpleFigureFactory implements FigureFactory {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
-        System.out.println("Creating Figure!");
+       // System.out.println("Creating Figure!");
 
         Figure figure;
 

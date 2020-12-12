@@ -18,7 +18,7 @@ public class PostProcessing extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
-        System.out.println("Running postProcessing!");
+       // System.out.println("Running postProcessing!");
 
         if (isFigureExists(type, figureConstituents)){
 

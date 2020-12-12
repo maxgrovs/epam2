@@ -8,7 +8,7 @@ import newTask.com.epam.jwd.service.FigureCrud;
 
 import java.util.List;
 
-public class SquareService<Square> implements FigureCrud {
+public class LineService<Line> implements FigureCrud {
 
     @Override
     public Figure create(FigureType type, Point... figureConstituents) throws FigureException {
@@ -17,6 +17,9 @@ public class SquareService<Square> implements FigureCrud {
 
     @Override
     public List findAll() {
+
+
+
         return null;
     }
 
@@ -24,4 +27,6 @@ public class SquareService<Square> implements FigureCrud {
     public void save(Figure figure) {
 
     }
+
+
 }
