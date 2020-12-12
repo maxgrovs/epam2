@@ -20,6 +20,8 @@ public class PreProcessing extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
+        System.out.println("Running preProcessing!");
+
         if (checkByDuplicate(figureConstituents)) {
             return super.createFigure(type, figureConstituents);
         } else

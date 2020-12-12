@@ -6,6 +6,9 @@ import newTask.com.epam.jwd.factory.FigureFactory;
 import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class PostProcessing extends FigureFactoryDecorator {
 
     public PostProcessing(FigureFactory factory) {
@@ -16,89 +19,61 @@ public class PostProcessing extends FigureFactoryDecorator {
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
         System.out.println("Running postProcessing!");
-        return process(super.createFigure(type, figureConstituents)) ;
 
-    }
+        if (isFigureExists(type, figureConstituents)){
 
-    public Figure process(Figure figure) throws FigureNotExistException {
+            return super.createFigure(type, figureConstituents);
 
-        boolean result = true;
-
-        if (figure instanceof Line) {
-            Line line = (Line) figure;
-
-            Point[] points = line.getPoints();
-
-            for (int i = 1; i < points.length; i++) {
-
-                if (points[0].equals(points[i])) {
-                    result = false;
-                    break;
-                }
-            }
-
-        }
-        if (figure instanceof Triangle) {
-            Triangle triangle = (Triangle) figure;
-
-            result = isTriangleExist(triangle);
-
-        }
-        if (figure instanceof Square) {
-            Square square = (Square) figure;
-
-            result = isSquareExist(square);
-
-        }
-
-        if (result) {
-
-            return figure;
-
-        } else {
+        } else
 
             throw new FigureNotExistException("The figure is not exist!");
-
-        }
     }
 
-    private boolean isTriangleExist(Figure figure) {
+    private boolean isFigureExists(FigureType type, Point... figureConstituents) throws FigureException {
 
-        Triangle triangle = null;
+        boolean result;
 
-        double sideA = 0;
-        double sideB = 0;
-        double sideC = 0;
-
-        if (figure instanceof Triangle) {
-            triangle = (Triangle) figure;
+        switch (type) {
+            case LINE:
+                result = true;
+                break;
+            case TRIANGLE:
+                result = isTriangleExist(figureConstituents);
+                break;
+            case SQUARE:
+                result = isSquareExist(figureConstituents);
+                break;
+            default:
+                throw new FigureException("Please enter right features!");
         }
 
-        if (triangle != null) {
-            sideA = calculateDistanceBetweenPoints(triangle.getPoints()[0], triangle.getPoints()[1]);
-            sideB = calculateDistanceBetweenPoints(triangle.getPoints()[1], triangle.getPoints()[2]);
-            sideC = calculateDistanceBetweenPoints(triangle.getPoints()[2], triangle.getPoints()[0]);
-        }
+        return result;
+    }
+
+    private boolean isTriangleExist(Point... figureConstituents) {
+
+        List<Point> points = Arrays.asList(figureConstituents);
+
+        double sideA;
+        double sideB;
+        double sideC;
+
+        sideA = calculateDistanceBetweenPoints(points.get(0), points.get(1));
+        sideB = calculateDistanceBetweenPoints(points.get(1), points.get(2));
+        sideC = calculateDistanceBetweenPoints(points.get(2), points.get(0));
 
         return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }
 
-    private boolean isSquareExist(Figure figure) {
+    private boolean isSquareExist(Point... figureConstituents) {
 
-        Square square = null;
+        List<Point> points = Arrays.asList(figureConstituents);
 
-        double sideA = 0;
-        double diagonal = 0;
+        double sideA;
+        double diagonal;
 
-        if (figure instanceof Square) {
-            square = (Square) figure;
-        }
-
-        if (square != null) {
-            sideA = calculateDistanceBetweenPoints(square.getPoints()[0], square.getPoints()[1]) * 1000;
-            diagonal = calculateDistanceBetweenPoints(square.getPoints()[1], square.getPoints()[3]) * 1000;
-
-        }
+        sideA = calculateDistanceBetweenPoints(points.get(0), points.get(1)) * 1000;
+        diagonal = calculateDistanceBetweenPoints(points.get(1), points.get(3)) * 1000;
 
         return (int) diagonal == (int) (Math.sqrt(2) * sideA);
     }

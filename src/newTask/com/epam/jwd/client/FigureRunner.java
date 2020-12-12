@@ -13,10 +13,10 @@ public class FigureRunner {
 
     public static void main(String[] args) throws FigureException {
 
-        FigureFactoryDecorator processing = new PostProcessing(new PreProcessing(new SimpleFigureFactory()));
+        FigureFactoryDecorator processing = new PreProcessing(new PostProcessing(new SimpleFigureFactory()));
 
         Figure figure = processing.createFigure(FigureType.TRIANGLE,
-                new Point(1, 2), new Point(1, 2), new Point(1, 4));
+                new Point(1, 1), new Point(2, 2), new Point(3, 4));
 
         System.out.println(figure);
 
