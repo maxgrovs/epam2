@@ -1,38 +1,38 @@
 package newTask.com.epam.jwd.model;
 
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class Line implements Figure {
 
-    private Point[] points;
+    private List<Point> points;
 
-    Line(Point[] points) {
+     Line(List<Point> points) {
         this.points = points;
     }
 
-    public Point[] getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Line line = (Line) o;
-        return Arrays.equals(points, line.points);
+        return Objects.equals(points, line.points);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(points);
+        return Objects.hash(points);
     }
 
     @Override
     public String toString() {
         return "Line{" +
-                "points=" + Arrays.toString(points) +
+                "points=" + points +
                 '}';
     }
 }

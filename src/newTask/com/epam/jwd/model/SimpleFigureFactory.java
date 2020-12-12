@@ -6,6 +6,7 @@ import newTask.com.epam.jwd.factory.FigureFactory;
 import newTask.com.epam.jwd.factory.FigureType;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SimpleFigureFactory implements FigureFactory {
@@ -58,12 +59,14 @@ public class SimpleFigureFactory implements FigureFactory {
 
 
     private Figure fetchLineFromCashOrCreate(Point... points) {
+
+        List<Point> pointList = Arrays.asList(points);
         for (Line line : lineStorage) {
-            if (line != null && line.getPoints() == points) {
+            if (line != null && line.getPoints().equals(pointList)) {
                 return line;
             }
         }
-        final Line line = new Line(points);
+        final Line line = new Line(pointList);
 
         lineStorage.add(line);
 
