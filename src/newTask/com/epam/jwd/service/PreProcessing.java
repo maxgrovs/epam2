@@ -7,6 +7,10 @@ import newTask.com.epam.jwd.factory.FigureFactory;
 import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.*;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class PreProcessing extends FigureFactoryDecorator {
 
     public PreProcessing(FigureFactory factory) {
@@ -16,51 +20,23 @@ public class PreProcessing extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
+        if (checkByDuplicate(figureConstituents)) {
+            return super.createFigure(type, figureConstituents);
+        } else
+            throw new FigurePointException("The figure has the same points!");
 
-        return super.createFigure(type, figureConstituents);
     }
 
-    public Figure preProcess(Figure figure) throws FigurePointException {
-
+    private boolean checkByDuplicate(Point... figureConstituents) {
         boolean result = true;
 
-        Point[] points = new Point[0];
+        Set<Point> points = new HashSet<>(Arrays.asList(figureConstituents));
 
-        if (figure instanceof Line) {
-            Line line = (Line) figure;
-
-            points = line.getPoints();
-
-        }
-        if (figure instanceof Triangle) {
-            Triangle triangle = (Triangle) figure;
-
-            points = triangle.getPoints();
-
-        }
-        if (figure instanceof Square) {
-            Square square = (Square) figure;
-
-            points = square.getPoints();
-
+        if (points.size() < figureConstituents.length) {
+            result = false;
         }
 
-        for (int i = 1; i < points.length; i++) {
-
-            if (points[0].equals(points[i])) {
-                result = false;
-                break;
-            }
-        }
-
-        if (result) {
-
-            return figure;
-
-        } else {
-
-            throw new FigurePointException("The figure has the same points!");
-        }
+        return result;
     }
 
 }
