@@ -16,10 +16,8 @@ public class PreProcessing extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
-        System.out.println("Running preProcessing!");
 
-        return preProcess(super.createFigure(type, figureConstituents));
-
+        return super.createFigure(type, figureConstituents);
     }
 
     public Figure preProcess(Figure figure) throws FigurePointException {
