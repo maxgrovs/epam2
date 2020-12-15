@@ -12,6 +12,7 @@ import newTask.com.epam.jwd.service.decorator.PostProcessing;
 import newTask.com.epam.jwd.service.decorator.PreProcessing;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleService<T extends Figure> implements FigureCrud {
@@ -25,7 +26,8 @@ public class TriangleService<T extends Figure> implements FigureCrud {
         return INSTANCE;
     }
 
-    private TriangleStorage triangleStorage = new TriangleStorage();
+    private static TriangleStorage triangleStorage;
+
 
     @Override
     public Figure create(FigureType type, Point... figureConstituents) {
@@ -51,9 +53,22 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
     @Override
     public void save(Figure figure) {
+
+        if (triangleStorage == null) {
+            triangleStorage = new TriangleStorage(new ArrayList<>());
+        }
+
         triangleStorage.getTriangles().add((Triangle) figure);
     }
 
+    public TriangleStorage getTriangleStorage() {
+        return triangleStorage;
+    }
 
-
+    @Override
+    public String toString() {
+        return "TriangleService{" +
+                "triangleStorage=" + triangleStorage +
+                '}';
+    }
 }
