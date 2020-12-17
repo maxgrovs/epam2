@@ -10,6 +10,7 @@ import newTask.com.epam.jwd.service.FigureCrud;
 import newTask.com.epam.jwd.service.decorator.FigureFactoryDecorator;
 import newTask.com.epam.jwd.service.decorator.PostProcessing;
 import newTask.com.epam.jwd.service.decorator.PreProcessing;
+import newTask.com.epam.jwd.service.storage.TriangleStorage;
 
 
 import java.util.ArrayList;

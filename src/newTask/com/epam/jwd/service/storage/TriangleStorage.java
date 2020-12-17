@@ -1,4 +1,4 @@
-package newTask.com.epam.jwd.service.impl;
+package newTask.com.epam.jwd.service.storage;
 
 import newTask.com.epam.jwd.model.Triangle;
 

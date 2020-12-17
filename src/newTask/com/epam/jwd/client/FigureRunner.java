@@ -1,9 +1,7 @@
 package newTask.com.epam.jwd.client;
 
 import newTask.com.epam.jwd.exception.FigureException;
-import newTask.com.epam.jwd.model.Figure;
-import newTask.com.epam.jwd.model.Point;
-import newTask.com.epam.jwd.model.Triangle;
+import newTask.com.epam.jwd.model.*;
 import newTask.com.epam.jwd.service.impl.TriangleService;
 
 import java.util.Optional;
@@ -31,8 +29,14 @@ public class FigureRunner {
 
        // System.out.println(triangleService.findAll());
 
-        triangleService.printAll();
+       // triangleService.printAll();
 
+
+       final NewTriangle newTriangle = NewTriangle.builder()
+                .a(new NewLine(new Point(1, 2), new Point(2,3)))
+                .b(new NewLine(new Point(2, 3), new Point(2,6)))
+                .c(new NewLine(new Point(2, 6), new Point(1,2)))
+               .build();
 
     }
 
