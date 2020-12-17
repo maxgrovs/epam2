@@ -18,9 +18,9 @@ public class PostProcessing extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
 
-       // System.out.println("Running postProcessing!");
+        // System.out.println("Running postProcessing!");
 
-        if (isFigureExists(type, figureConstituents)){
+        if (isFigureExists(type, figureConstituents)) {
 
             return super.createFigure(type, figureConstituents);
 
@@ -54,13 +54,9 @@ public class PostProcessing extends FigureFactoryDecorator {
 
         List<Point> points = Arrays.asList(figureConstituents);
 
-        double sideA;
-        double sideB;
-        double sideC;
-
-        sideA = calculateDistanceBetweenPoints(points.get(0), points.get(1));
-        sideB = calculateDistanceBetweenPoints(points.get(1), points.get(2));
-        sideC = calculateDistanceBetweenPoints(points.get(2), points.get(0));
+        double sideA = calculateDistanceBetweenPoints(points.get(0), points.get(1));
+        double sideB = calculateDistanceBetweenPoints(points.get(1), points.get(2));
+        double sideC = calculateDistanceBetweenPoints(points.get(2), points.get(0));
 
         return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
     }

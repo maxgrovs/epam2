@@ -34,4 +34,5 @@ public class Square implements Figure {
                 "points=" + points +
                 '}';
     }
+
 }

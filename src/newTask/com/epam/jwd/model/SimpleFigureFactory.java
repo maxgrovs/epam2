@@ -11,11 +11,11 @@ import java.util.List;
 
 public class SimpleFigureFactory implements FigureFactory {
 
-    private static List<Line> lineStorage = new ArrayList<>();
+    private static List<Line> linesBuffer = new ArrayList<>();
 
-    private static List<Triangle> triangleStorage = new ArrayList<>();
+    private static List<Triangle> trianglesBuffer = new ArrayList<>();
 
-    private static List<Square> squareStorage = new ArrayList<>();
+    private static List<Square> squaresBuffer = new ArrayList<>();
 
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {
@@ -52,14 +52,14 @@ public class SimpleFigureFactory implements FigureFactory {
 
         List<Point> pointList = Arrays.asList(points);
 
-        for (Line line : lineStorage) {
+        for (Line line : linesBuffer) {
             if (line != null && line.getPoints().equals(pointList)) {
                 return line;
             }
         }
         final Line line = new Line(pointList);
 
-        lineStorage.add(line);
+        linesBuffer.add(line);
 
         return line;
     }
@@ -68,14 +68,14 @@ public class SimpleFigureFactory implements FigureFactory {
 
         List<Point> pointList = Arrays.asList(points);
 
-        for (Triangle triangle : triangleStorage) {
+        for (Triangle triangle : trianglesBuffer) {
             if (triangle != null && triangle.getPoints().equals(pointList)) {
                 return triangle;
             }
         }
         final Triangle triangle = new Triangle(pointList);
 
-        triangleStorage.add(triangle);
+        trianglesBuffer.add(triangle);
 
         return triangle;
     }
@@ -84,7 +84,7 @@ public class SimpleFigureFactory implements FigureFactory {
 
         List<Point> pointList = Arrays.asList(points);
 
-        for (Square square : squareStorage) {
+        for (Square square : squaresBuffer) {
             if (square != null && square.getPoints().equals(pointList)) {
                 return square;
             }
@@ -92,7 +92,7 @@ public class SimpleFigureFactory implements FigureFactory {
 
         final Square square = new Square(pointList);
 
-        squareStorage.add(square);
+        squaresBuffer.add(square);
 
         return square;
     }

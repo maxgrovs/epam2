@@ -51,6 +51,12 @@ public class TriangleService<T extends Figure> implements FigureCrud {
         return triangleStorage.getTriangles();
     }
 
+
+    public void printAll() {
+
+        triangleStorage.getTriangles().forEach(System.out::println);
+    }
+
     @Override
     public void save(Figure figure) {
 

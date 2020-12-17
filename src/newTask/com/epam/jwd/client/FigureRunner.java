@@ -21,14 +21,17 @@ public class FigureRunner {
         Figure figure1 = triangleService.create(TRIANGLE,
                 new Point(1, 3), new Point(1, 2), new Point(3, 3));
 
-        System.out.println(figure);
+       // System.out.println(figure);
 
 
         triangleService.save(figure);
         triangleService.save(figure1);
+        triangleService.save(figure1);
 
 
-        System.out.println(triangleService.findAll());
+       // System.out.println(triangleService.findAll());
+
+        triangleService.printAll();
 
 
     }
