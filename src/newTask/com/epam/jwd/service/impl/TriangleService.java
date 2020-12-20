@@ -8,6 +8,7 @@ import newTask.com.epam.jwd.model.Triangle;
 import newTask.com.epam.jwd.service.FigureCrud;
 import newTask.com.epam.jwd.service.decorator.FigureApplicationContext;
 import newTask.com.epam.jwd.service.decorator.FigureFactoryDecorator;
+import newTask.com.epam.jwd.service.impl.specification.Specification;
 import newTask.com.epam.jwd.service.storage.TriangleStorage;
 
 
@@ -49,6 +50,14 @@ public class TriangleService<T extends Figure> implements FigureCrud {
     public List<Triangle> findAll() {
 
         return triangleStorage.getTriangles();
+    }
+
+    @Override
+    public List<Triangle> findBySpecification(Specification specification) {
+
+
+
+        return null;
     }
 
 
