@@ -13,6 +13,7 @@ import newTask.com.epam.jwd.service.storage.TriangleStorage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TriangleService<T extends Figure> implements FigureCrud {
 
@@ -27,7 +28,7 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
     private static TriangleStorage triangleStorage;
 
-    private FigureFactoryDecorator factory = new FigureApplicationContext().createFactory();
+    private final FigureFactoryDecorator factory = new FigureApplicationContext().createFactory();
 
     @Override
     public Figure create(FigureType type, Point... figureConstituents) {
@@ -42,7 +43,6 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
         return figure;
     }
-
 
 
     @Override
@@ -69,10 +69,13 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
     @Override
     public void delete(Figure figure) {
-        triangleStorage.getTriangles().stream()
-                .peek(triangle -> if (tr == null) {
 
-        })
+        List<Triangle> result = triangleStorage.getTriangles().stream()
+                .filter(triangle -> !triangle.equals(figure))
+                .collect(Collectors.toList());
+
+        triangleStorage.setTriangles(result);
+
     }
 
 

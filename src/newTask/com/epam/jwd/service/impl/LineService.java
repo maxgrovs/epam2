@@ -28,5 +28,10 @@ public class LineService<Line> implements FigureCrud {
 
     }
 
+    @Override
+    public void delete(Figure figure) {
+
+    }
+
 
 }

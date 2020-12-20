@@ -24,4 +24,8 @@ public class SquareService<Square> implements FigureCrud {
     public void save(Figure figure) {
 
     }
+
+    @Override
+    public void delete(Figure figure) {
+    }
 }
