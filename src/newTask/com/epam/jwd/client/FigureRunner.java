@@ -27,9 +27,9 @@ public class FigureRunner {
         triangleService.save(figure1);
 
 
-       // System.out.println(triangleService.findAll());
+        System.out.println(triangleService.findAll());
 
-       // triangleService.printAll();
+        triangleService.printAll();
 
 
        final NewTriangle newTriangle = NewTriangle.builder()

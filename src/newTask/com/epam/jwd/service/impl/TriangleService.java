@@ -4,12 +4,10 @@ import newTask.com.epam.jwd.exception.FigureException;
 import newTask.com.epam.jwd.factory.FigureType;
 import newTask.com.epam.jwd.model.Figure;
 import newTask.com.epam.jwd.model.Point;
-import newTask.com.epam.jwd.model.SimpleFigureFactory;
 import newTask.com.epam.jwd.model.Triangle;
 import newTask.com.epam.jwd.service.FigureCrud;
+import newTask.com.epam.jwd.service.decorator.FigureApplicationContext;
 import newTask.com.epam.jwd.service.decorator.FigureFactoryDecorator;
-import newTask.com.epam.jwd.service.decorator.PostProcessing;
-import newTask.com.epam.jwd.service.decorator.PreProcessing;
 import newTask.com.epam.jwd.service.storage.TriangleStorage;
 
 
@@ -29,16 +27,15 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
     private static TriangleStorage triangleStorage;
 
+    private FigureFactoryDecorator factory = new FigureApplicationContext().createFactory();
 
     @Override
     public Figure create(FigureType type, Point... figureConstituents) {
 
-        FigureFactoryDecorator processing = new PreProcessing(new PostProcessing(new SimpleFigureFactory()));
-
         Figure figure = null;
 
         try {
-            figure = processing.createFigure(type, figureConstituents);
+            figure = factory.createFigure(type, figureConstituents);
         } catch (FigureException e) {
             e.printStackTrace();
         }
@@ -46,8 +43,10 @@ public class TriangleService<T extends Figure> implements FigureCrud {
         return figure;
     }
 
+
+
     @Override
-    public List findAll() {
+    public List<Triangle> findAll() {
 
         return triangleStorage.getTriangles();
     }
@@ -67,6 +66,15 @@ public class TriangleService<T extends Figure> implements FigureCrud {
 
         triangleStorage.getTriangles().add((Triangle) figure);
     }
+
+    @Override
+    public void delete(Figure figure) {
+        triangleStorage.getTriangles().stream()
+                .peek(triangle -> if (tr == null) {
+
+        })
+    }
+
 
     public TriangleStorage getTriangleStorage() {
         return triangleStorage;

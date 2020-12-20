@@ -15,5 +15,5 @@ public interface FigureCrud<T extends Figure> {
 
     void save(T figure);
 
-    //void delete
+    void delete(T figure);
 }
