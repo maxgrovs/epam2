@@ -55,12 +55,11 @@ public class TriangleService<T extends Figure> implements FigureCrud {
     @Override
     public List<Triangle> findBySpecification(Specification specification) {
 
-        List<Triangle> collect = triangleStorage.getTriangles().stream()
-                .filter(triangle -> calcArea(triangle) > 10)
+        List<Triangle> result = triangleStorage.getTriangles().stream()
+                .filter(triangle -> calcArea(triangle) > specification.getGreaterThenArea())
                 .collect(Collectors.toList());
 
-
-        return null;
+        return result;
     }
 
 
@@ -102,7 +101,7 @@ public class TriangleService<T extends Figure> implements FigureCrud {
                 '}';
     }
 
-    private double calcArea(Triangle figure) {
+    public double calcArea(Triangle figure) {
 
         double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
         double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
