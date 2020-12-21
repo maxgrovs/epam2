@@ -4,6 +4,7 @@ import homeWork.task_3.com.epam.jwd.exception.FigureException;
 import homeWork.task_3.com.epam.jwd.factory.FigureType;
 import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
+import homeWork.task_3.com.epam.jwd.model.Triangle;
 import homeWork.task_3.com.epam.jwd.service.FigureService;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureApplicationContext;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureFactoryDecorator;
@@ -65,12 +66,17 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
     }
 
     @Override
-    public List<T> findBySpecification(Specification specification) {
+    public List<Figure> findBySpecification(Specification specification) {
+
+        return   storage.getFigures().stream()
+                .filter(figure -> figure.getClass().equals(specification.getClass()))
+                .filter(figure -> calcArea(figure) > specification.getWithAreaGreaterThan())
+                .collect(Collectors.toList());
 
 
-
-        return null;
     }
+
+
 
     @Override
     public void delete(T figure) {
@@ -81,5 +87,28 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
 
        storage.setFigures(result);
 
+    }
+
+    public double calcArea(Figure figure) {
+
+
+
+        double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
+        double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
+        double sideC = calculateDistanceBetweenPoints(figure.getPoints().get(2), figure.getPoints().get(0));
+
+        double semiPerimeter = (sideA + sideB + sideC) / 2;
+
+        return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) *
+                (semiPerimeter - sideC));
+
+    }
+
+    private double calculateDistanceBetweenPoints(Point a, Point b) {
+
+        double ac = Math.abs(b.getY() - a.getY());
+        double cb = Math.abs(b.getX() - a.getX());
+
+        return Math.hypot(ac, cb);
     }
 }

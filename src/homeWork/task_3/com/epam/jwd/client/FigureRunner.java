@@ -31,15 +31,15 @@ public class FigureRunner {
 
         // triangleService.delete(figure1);
 
-        //  triangleService.printAll();
+
 
 
 
         Specification specification = Specification.builder().greaterThenArea(50).build();
 
-        List<Triangle> list = triangleService.findBySpecification(specification);
+        service.findBySpecification(specification);
 
-        System.out.println(list);
+       // System.out.println(list);
 
 
     }

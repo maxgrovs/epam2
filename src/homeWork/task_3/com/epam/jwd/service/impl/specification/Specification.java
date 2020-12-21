@@ -1,28 +1,29 @@
 package homeWork.task_3.com.epam.jwd.service.impl.specification;
 
 import homeWork.task_3.com.epam.jwd.factory.FigureType;
+import homeWork.task_3.com.epam.jwd.model.Figure;
 
 import java.util.Objects;
 
 public class Specification {
 
-    private FigureType findFigure;
+    private Figure findFigure;
     private String name;
     private double area;
     private double withAreaGreaterThan;
 
 
-    public Specification(FigureType findFigure, String name,  double withAreaGreaterThan) {
+    public Specification(Figure findFigure, String name,  double withAreaGreaterThan) {
         this.findFigure = findFigure;
         this.name = name;
         this.withAreaGreaterThan = withAreaGreaterThan;
     }
 
-    public FigureType getFindFigure() {
+    public Figure getFindFigure() {
         return findFigure;
     }
 
-    public void setFindFigure(FigureType findFigure) {
+    public void setFindFigure(Figure findFigure) {
         this.findFigure = findFigure;
     }
 
@@ -52,12 +53,12 @@ public class Specification {
 
     public static class Builder {
 
-        private FigureType figure;
+        private Figure figure;
         private String name;
         private double greaterThenArea;
 
 
-        public Builder figure(FigureType figure) {
+        public Builder figure(Figure figure) {
             this.figure = figure;
             return this;
         }
