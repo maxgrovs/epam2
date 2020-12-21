@@ -7,9 +7,9 @@ import homeWork.task_3.com.epam.jwd.factory.FigureType;
 import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
 
-public class FigureFactoryDecorator implements FigureFactory {
+public class FigureFactoryDecorator implements FigureFactory{
 
-    private FigureFactory factory;
+    private final FigureFactory factory;
 
     public FigureFactoryDecorator(FigureFactory factory) {
         this.factory = factory;

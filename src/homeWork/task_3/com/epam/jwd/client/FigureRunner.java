@@ -6,6 +6,7 @@ import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
 import homeWork.task_3.com.epam.jwd.model.Triangle;
 import homeWork.task_3.com.epam.jwd.service.impl.TriangleService;
+import homeWork.task_3.com.epam.jwd.service.impl.UniversalFigureService;
 import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
 
 import java.util.List;
@@ -16,22 +17,23 @@ public class FigureRunner {
 
     public static void main(String[] args) throws FigureException {
 
+        UniversalFigureService service = UniversalFigureService.getINSTANCE();
         TriangleService triangleService = TriangleService.getINSTANCE();
 
-        Figure figure = triangleService.create(TRIANGLE,
+        Figure figure = service.create(TRIANGLE,
                 new Point(10, 10), new Point(10, 20), new Point(30, 30));
-        Figure figure1 = triangleService.create(TRIANGLE,
+        Figure figure1 = service.create(TRIANGLE,
                 new Point(40, 30), new Point(10, 20), new Point(30, 30));
 
-        // triangleService.save(figure);
-        // triangleService.save(figure1);
-        // triangleService.save(figure1);
+        service.save(figure);
+        service.save(figure1);
+        service.save(figure1);
 
         // triangleService.delete(figure1);
 
         //  triangleService.printAll();
 
-        //  System.out.println(triangleService.calcArea((Triangle) figure1));
+
 
         Specification specification = Specification.builder().greaterThenArea(50).build();
 
@@ -39,7 +41,7 @@ public class FigureRunner {
 
         System.out.println(list);
 
-        Class<Triangle> triangleClass = Triangle.class;
+
     }
 
 }

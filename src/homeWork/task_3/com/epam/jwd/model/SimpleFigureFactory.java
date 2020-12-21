@@ -11,11 +11,11 @@ import java.util.List;
 
 public class SimpleFigureFactory implements FigureFactory {
 
-    private static List<Line> linesBuffer = new ArrayList<>();
+    private static final List<Line> linesBuffer = new ArrayList<>();
 
-    private static List<Triangle> trianglesBuffer = new ArrayList<>();
+    private static final List<Triangle> trianglesBuffer = new ArrayList<>();
 
-    private static List<Square> squaresBuffer = new ArrayList<>();
+    private static final List<Square> squaresBuffer = new ArrayList<>();
 
     @Override
     public Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException {

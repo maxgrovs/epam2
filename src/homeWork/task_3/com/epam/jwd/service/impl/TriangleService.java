@@ -5,7 +5,7 @@ import homeWork.task_3.com.epam.jwd.factory.FigureType;
 import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
 import homeWork.task_3.com.epam.jwd.model.Triangle;
-import homeWork.task_3.com.epam.jwd.service.FigureCrud;
+import homeWork.task_3.com.epam.jwd.service.FigureService;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureApplicationContext;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureFactoryDecorator;
 import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TriangleService implements FigureCrud<Triangle> {
+public class TriangleService implements FigureService<Triangle> {
 
     private static TriangleStorage triangleStorage;
 

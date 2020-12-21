@@ -4,8 +4,7 @@ import homeWork.task_3.com.epam.jwd.exception.FigureException;
 import homeWork.task_3.com.epam.jwd.factory.FigureType;
 import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
-import homeWork.task_3.com.epam.jwd.model.Triangle;
-import homeWork.task_3.com.epam.jwd.service.FigureCrud;
+import homeWork.task_3.com.epam.jwd.service.FigureService;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureApplicationContext;
 import homeWork.task_3.com.epam.jwd.service.decorator.FigureFactoryDecorator;
 import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UniversalFigureService<T extends Figure> implements FigureCrud<T> {
+public class UniversalFigureService<T extends Figure> implements FigureService<T> {
 
     private static FigureStorage storage;
 
@@ -36,7 +35,6 @@ public class UniversalFigureService<T extends Figure> implements FigureCrud<T> {
     @Override
     public Figure create(FigureType type, Point... figureConstituents) throws FigureException {
 
-
         Figure figure = null;
 
         try {
@@ -49,7 +47,7 @@ public class UniversalFigureService<T extends Figure> implements FigureCrud<T> {
     }
 
     @Override
-    public void save(T figure) {
+    public void save(Figure figure) {
 
         if (storage == null) {
             storage = new FigureStorage(new ArrayList<>());

@@ -8,7 +8,7 @@ import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
 
 import java.util.List;
 
-public interface FigureCrud<T extends Figure> {
+public interface FigureService<T extends Figure> {
 
     Figure create(FigureType type, Point... figureConstituents) throws FigureException;
 

@@ -10,7 +10,7 @@ import homeWork.task_3.com.epam.jwd.model.Point;
 import java.util.Arrays;
 import java.util.List;
 
-public class PostProcessing extends FigureFactoryDecorator {
+public class PostProcessing extends FigureFactoryDecorator{
 
     public PostProcessing(FigureFactory factory) {
         super(factory);
