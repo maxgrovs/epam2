@@ -12,6 +12,7 @@ import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
 import homeWork.task_3.com.epam.jwd.service.storage.TriangleStorage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +55,9 @@ public class TriangleService<T extends Figure> implements FigureCrud {
     @Override
     public List<Triangle> findBySpecification(Specification specification) {
 
+        List<Triangle> collect = triangleStorage.getTriangles().stream()
+                .filter(triangle -> calcArea(triangle) > 10)
+                .collect(Collectors.toList());
 
 
         return null;
@@ -96,5 +100,26 @@ public class TriangleService<T extends Figure> implements FigureCrud {
         return "TriangleService{" +
                 "triangleStorage=" + triangleStorage +
                 '}';
+    }
+
+    private double calcArea(Triangle figure) {
+
+        double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
+        double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
+        double sideC = calculateDistanceBetweenPoints(figure.getPoints().get(2), figure.getPoints().get(0));
+
+        double semiPerimeter = (sideA + sideB + sideC) / 2;
+
+        return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) *
+                (semiPerimeter - sideC));
+
+    }
+
+    private double calculateDistanceBetweenPoints(Point a, Point b) {
+
+        double ac = Math.abs(b.getY() - a.getY());
+        double cb = Math.abs(b.getX() - a.getX());
+
+        return Math.hypot(ac, cb);
     }
 }
