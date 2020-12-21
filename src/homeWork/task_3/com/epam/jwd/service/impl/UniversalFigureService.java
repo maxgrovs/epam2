@@ -93,15 +93,16 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
 
 
 
-        double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
+        /*double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
         double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
         double sideC = calculateDistanceBetweenPoints(figure.getPoints().get(2), figure.getPoints().get(0));
 
         double semiPerimeter = (sideA + sideB + sideC) / 2;
 
         return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) *
-                (semiPerimeter - sideC));
+                (semiPerimeter - sideC));*/
 
+        return 0;
     }
 
     private double calculateDistanceBetweenPoints(Point a, Point b) {

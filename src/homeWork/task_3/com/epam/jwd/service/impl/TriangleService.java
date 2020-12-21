@@ -57,7 +57,7 @@ public class TriangleService implements FigureService<Triangle> {
     @Override
     public List<Figure> findBySpecification(Specification specification) {
 
-        List<Triangle> result = triangleStorage.getTriangles().stream()
+        List<Figure> result = triangleStorage.getTriangles().stream()
                 .filter(triangle -> calcArea(triangle) > specification.getWithAreaGreaterThan())
                 .collect(Collectors.toList());
 
