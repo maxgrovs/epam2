@@ -19,9 +19,9 @@ public class FigureRunner {
         TriangleService triangleService = TriangleService.getINSTANCE();
 
         Figure figure = triangleService.create(TRIANGLE,
-                new Point(1, 1), new Point(1, 2), new Point(3, 3));
+                new Point(10, 10), new Point(10, 20), new Point(30, 30));
         Figure figure1 = triangleService.create(TRIANGLE,
-                new Point(1, 3), new Point(1, 2), new Point(3, 3));
+                new Point(40, 30), new Point(10, 20), new Point(30, 30));
 
         triangleService.save(figure);
         triangleService.save(figure1);
@@ -31,7 +31,9 @@ public class FigureRunner {
 
         //  triangleService.printAll();
 
-        Specification specification = Specification.builder().greaterThenArea(0.9).build();
+        //  System.out.println(triangleService.calcArea((Triangle) figure1));
+
+        Specification specification = Specification.builder().greaterThenArea(50).build();
 
         List list = triangleService.findBySpecification(specification);
 
