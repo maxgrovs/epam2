@@ -12,24 +12,26 @@ import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
 import homeWork.task_3.com.epam.jwd.service.storage.TriangleStorage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TriangleService<T extends Figure> implements FigureCrud {
+public class TriangleService implements FigureCrud<Triangle> {
+
+    private static TriangleStorage triangleStorage;
+
+    private final FigureFactoryDecorator factory = new FigureApplicationContext().createFactory();
+
+
 
     private TriangleService() {
     }
-
     private static final TriangleService INSTANCE = new TriangleService();
 
     public static TriangleService getINSTANCE() {
         return INSTANCE;
     }
 
-    private static TriangleStorage triangleStorage;
 
-    private final FigureFactoryDecorator factory = new FigureApplicationContext().createFactory();
 
     @Override
     public Figure create(FigureType type, Point... figureConstituents) {
@@ -56,21 +58,14 @@ public class TriangleService<T extends Figure> implements FigureCrud {
     public List<Triangle> findBySpecification(Specification specification) {
 
         List<Triangle> result = triangleStorage.getTriangles().stream()
-                .filter(triangle -> calcArea(triangle) > specification.getGreaterThenArea())
+                .filter(triangle -> calcArea(triangle) > specification.getWithAreaGreaterThan())
                 .collect(Collectors.toList());
 
         return result;
     }
 
-
-    public void printAll() {
-
-        triangleStorage.getTriangles().forEach(System.out::println);
-    }
-
     @Override
-    public void save(Figure figure) {
-
+    public void save(Triangle figure) {
         if (triangleStorage == null) {
             triangleStorage = new TriangleStorage(new ArrayList<>());
         }
@@ -79,14 +74,18 @@ public class TriangleService<T extends Figure> implements FigureCrud {
     }
 
     @Override
-    public void delete(Figure figure) {
-
+    public void delete(Triangle figure) {
         List<Triangle> result = triangleStorage.getTriangles().stream()
                 .filter(triangle -> !triangle.equals(figure))
                 .collect(Collectors.toList());
 
         triangleStorage.setTriangles(result);
+    }
 
+
+    public void printAll() {
+
+        triangleStorage.getTriangles().forEach(System.out::println);
     }
 
 

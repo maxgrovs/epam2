@@ -23,9 +23,9 @@ public class FigureRunner {
         Figure figure1 = triangleService.create(TRIANGLE,
                 new Point(40, 30), new Point(10, 20), new Point(30, 30));
 
-        triangleService.save(figure);
-        triangleService.save(figure1);
-        triangleService.save(figure1);
+        // triangleService.save(figure);
+        // triangleService.save(figure1);
+        // triangleService.save(figure1);
 
         // triangleService.delete(figure1);
 
@@ -35,9 +35,11 @@ public class FigureRunner {
 
         Specification specification = Specification.builder().greaterThenArea(50).build();
 
-        List list = triangleService.findBySpecification(specification);
+        List<Triangle> list = triangleService.findBySpecification(specification);
 
         System.out.println(list);
+
+        Class<Triangle> triangleClass = Triangle.class;
     }
 
 }
