@@ -16,8 +16,8 @@ public interface Stack<E> {
 
     boolean isFull();
 
-    void pushAll(Collection<E> src) throws StackExeption; //сложить в стек все что у нас в коллекции src
+    void pushAll(Collection<? extends E> src) throws StackExeption; //сложить в стек все что у нас в коллекции src
 
-    void popAll(Collection<E> dst) throws StackExeption;// все элементы коллекции стек переложить в dst
+    void popAll(Collection<? super E> dst) throws StackExeption;// все элементы коллекции стек переложить в dst
 
 }

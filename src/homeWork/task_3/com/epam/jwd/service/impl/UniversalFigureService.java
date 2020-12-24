@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UniversalFigureService<T extends Figure> implements FigureService<Figure> {
+public class UniversalFigureService<T extends Figure> implements FigureService<T> {
 
     private static FigureStorage storage;
 
@@ -60,12 +60,17 @@ public class UniversalFigureService<T extends Figure> implements FigureService<F
 
 
     @Override
-    public List<Figure> findAll() {
+    public List<T> findAll() {
 
         return null;
     }
 
     @Override
+    public List<T> findBySpecification(Specification specification) {
+        return null;
+    }
+
+    /*@Override
     public List<Figure> findBySpecification(Specification specification) {
 
         return   storage.getFigures().stream()
@@ -74,9 +79,24 @@ public class UniversalFigureService<T extends Figure> implements FigureService<F
                 .collect(Collectors.toList());
 
 
+    }*/
+
+
+
+    @Override
+    public void delete(T figure) {
+
+        List<Figure> result = storage.getFigures().stream()
+                .filter(figure1 -> !figure1.equals(figure))
+                .collect(Collectors.toList());
+
+       storage.setFigures(result);
+
     }
 
-    private <T extends Figure> double calcArea(T figure) {
+    public double calcArea(Figure figure) {
+
+
 
         /*double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
         double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
@@ -88,17 +108,6 @@ public class UniversalFigureService<T extends Figure> implements FigureService<F
                 (semiPerimeter - sideC));*/
 
         return 0;
-    }
-
-    @Override
-    public void delete(Figure figure) {
-
-        List<Figure> result = storage.getFigures().stream()
-                .filter(figure1 -> !figure1.equals(figure))
-                .collect(Collectors.toList());
-
-       storage.setFigures(result);
-
     }
 
     private double calculateDistanceBetweenPoints(Point a, Point b) {
