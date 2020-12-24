@@ -14,7 +14,7 @@ public interface FigureService<T extends Figure> {
 
     List<T> findAll();
 
-    List<Figure> findBySpecification(Specification specification);
+    List<T>  findBySpecification(Specification specification);
 
     void save(T figure);
 

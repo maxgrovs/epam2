@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UniversalFigureService<T extends Figure> implements FigureService<T> {
+public class UniversalFigureService<T extends Figure> implements FigureService<Figure> {
 
     private static FigureStorage storage;
 
@@ -60,7 +60,7 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
 
 
     @Override
-    public List<T> findAll() {
+    public List<Figure> findAll() {
 
         return null;
     }
@@ -76,22 +76,7 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
 
     }
 
-
-
-    @Override
-    public void delete(T figure) {
-
-        List<Figure> result = storage.getFigures().stream()
-                .filter(figure1 -> !figure1.equals(figure))
-                .collect(Collectors.toList());
-
-       storage.setFigures(result);
-
-    }
-
-    public double calcArea(Figure figure) {
-
-
+    private <T extends Figure> double calcArea(T figure) {
 
         /*double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
         double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
@@ -103,6 +88,17 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
                 (semiPerimeter - sideC));*/
 
         return 0;
+    }
+
+    @Override
+    public void delete(Figure figure) {
+
+        List<Figure> result = storage.getFigures().stream()
+                .filter(figure1 -> !figure1.equals(figure))
+                .collect(Collectors.toList());
+
+       storage.setFigures(result);
+
     }
 
     private double calculateDistanceBetweenPoints(Point a, Point b) {
