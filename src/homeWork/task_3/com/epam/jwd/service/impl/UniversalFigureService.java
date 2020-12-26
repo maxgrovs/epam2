@@ -66,11 +66,34 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
     }
 
     @Override
-    public List<T> findBySpecification(Specification specification) {
-        return null;
+    public List<Figure> findBySpecification(Specification specification) {
+        return   storage.getFigures().stream()
+                .filter(figure -> figure.getClass().equals(specification.getClass()))
+                .filter(figure -> calcArea(figure) > specification.getWithAreaGreaterThan())
+                .collect(Collectors.toList());
     }
 
-    /*@Override
+
+    public<T extends Figure> double calcArea(Triangle figure) {
+
+        double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
+        double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
+        double sideC = calculateDistanceBetweenPoints(figure.getPoints().get(2), figure.getPoints().get(0));
+
+        double semiPerimeter = (sideA + sideB + sideC) / 2;
+
+        return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) *
+                (semiPerimeter - sideC));
+
+
+    }
+
+    public<T extends Figure> double calcArea(Figure figure) {
+
+        return 0;
+    }
+
+   /* @Override
     public List<Figure> findBySpecification(Specification specification) {
 
         return   storage.getFigures().stream()
@@ -92,22 +115,6 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
 
        storage.setFigures(result);
 
-    }
-
-    public double calcArea(Figure figure) {
-
-
-
-        /*double sideA = calculateDistanceBetweenPoints(figure.getPoints().get(0), figure.getPoints().get(1));
-        double sideB = calculateDistanceBetweenPoints(figure.getPoints().get(1), figure.getPoints().get(2));
-        double sideC = calculateDistanceBetweenPoints(figure.getPoints().get(2), figure.getPoints().get(0));
-
-        double semiPerimeter = (sideA + sideB + sideC) / 2;
-
-        return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) *
-                (semiPerimeter - sideC));*/
-
-        return 0;
     }
 
     private double calculateDistanceBetweenPoints(Point a, Point b) {

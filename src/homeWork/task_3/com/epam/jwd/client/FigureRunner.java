@@ -1,11 +1,8 @@
 package homeWork.task_3.com.epam.jwd.client;
 
 import homeWork.task_3.com.epam.jwd.exception.FigureException;
-import homeWork.task_3.com.epam.jwd.factory.FigureType;
 import homeWork.task_3.com.epam.jwd.model.Figure;
 import homeWork.task_3.com.epam.jwd.model.Point;
-import homeWork.task_3.com.epam.jwd.model.Triangle;
-import homeWork.task_3.com.epam.jwd.service.impl.TriangleService;
 import homeWork.task_3.com.epam.jwd.service.impl.UniversalFigureService;
 import homeWork.task_3.com.epam.jwd.service.impl.specification.Specification;
 
@@ -15,10 +12,14 @@ import static homeWork.task_3.com.epam.jwd.factory.FigureType.TRIANGLE;
 
 public class FigureRunner {
 
+    public FigureRunner(double calcArea) {
+
+    }
+
     public static void main(String[] args) throws FigureException {
 
         UniversalFigureService service = UniversalFigureService.getINSTANCE();
-        TriangleService triangleService = TriangleService.getINSTANCE();
+
 
         Figure figure = service.create(TRIANGLE,
                 new Point(10, 10), new Point(10, 20), new Point(30, 30));
@@ -32,13 +33,15 @@ public class FigureRunner {
         // triangleService.delete(figure1);
 
 
-        Specification specification = Specification.builder().greaterThenArea(50).build();
+        Specification specification = Specification.builder().figure(TRIANGLE.getClass()).greaterThenArea(50).build();
 
-        service.findBySpecification(specification);
+        List bySpecification = service.findBySpecification(specification);
 
         // System.out.println(list);
 
+        System.out.println(service.calcArea(figure));
 
     }
+
 
 }

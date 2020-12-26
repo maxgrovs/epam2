@@ -7,23 +7,23 @@ import java.util.Objects;
 
 public class Specification {
 
-    private Figure findFigure;
+    private Class findFigure;
     private String name;
     private double area;
     private double withAreaGreaterThan;
 
 
-    public Specification(Figure findFigure, String name,  double withAreaGreaterThan) {
+    public Specification(Class findFigure, String name,  double withAreaGreaterThan) {
         this.findFigure = findFigure;
         this.name = name;
         this.withAreaGreaterThan = withAreaGreaterThan;
     }
 
-    public Figure getFindFigure() {
+    public Class getFindFigure() {
         return findFigure;
     }
 
-    public void setFindFigure(Figure findFigure) {
+    public void setFindFigure(Class findFigure) {
         this.findFigure = findFigure;
     }
 
@@ -53,12 +53,12 @@ public class Specification {
 
     public static class Builder {
 
-        private Figure figure;
+        private Class figure;
         private String name;
         private double greaterThenArea;
 
 
-        public Builder figure(Figure figure) {
+        public Builder figure(Class figure) {
             this.figure = figure;
             return this;
         }
