@@ -1,6 +1,7 @@
-package homeWork.task_3.com.epam.jwd.service.testGeneric;
+package testApp.service;
 
-import homeWork.task_3.com.epam.jwd.model.Figure;
+
+import testApp.model.Figure;
 
 import java.util.ArrayList;
 import java.util.List;

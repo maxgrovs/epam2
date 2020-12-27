@@ -1,6 +1,5 @@
 package lectures.udemy.lambda.syntax;
 
-import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove;
 
 import java.util.ArrayList;
 import java.util.List;

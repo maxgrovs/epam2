@@ -1,4 +1,4 @@
-package newTask.com.epam.jwd.model;
+package testApp.model;
 
 import java.util.Objects;
 
