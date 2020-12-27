@@ -30,9 +30,9 @@ public class FigureService {
     }
 
     //--------------------------
-    public<T extends Figure> T create(Point... figureConstituents) {
+    public Figure create(Point... figureConstituents) {
 
-        T figure = null;
+        Figure figure = null;
 
         try {
             figure = factory.createFigure(figureConstituents);

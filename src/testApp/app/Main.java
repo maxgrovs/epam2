@@ -1,10 +1,8 @@
 package testApp.app;
 
 
-import testApp.model.Figure;
-import testApp.model.Point;
-import testApp.model.Square;
-import testApp.model.Triangle;
+import testApp.exception.FigureException;
+import testApp.model.*;
 import testApp.service.FigureService;
 import testApp.service.FigureStorage;
 import testApp.service.Specification;
@@ -12,7 +10,7 @@ import testApp.service.Specification;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         FigureStorage<Triangle> triangles = new FigureStorage<>();
         FigureStorage<Square> squares = new FigureStorage<>();
 
@@ -30,7 +28,10 @@ public class Main {
 
         Figure figure = service.create(new Point(1, 2), new Point(3, 4), new Point(5, 3));
 
-        triangles.addFigure(figure);
+        //triangles.addFigure(figure);
+
+
+
 
         service.addFigureStorage(squares);
         service.addFigureStorage(triangles);

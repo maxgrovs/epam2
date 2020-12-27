@@ -15,7 +15,7 @@ public class FigureFactoryDecorator implements FigureFactory{
     }
 
     @Override
-    public <T extends Figure> T createFigure(Point... figureConstituents) throws FigureException {
+    public  Figure createFigure(Point... figureConstituents) throws FigureException {
 
         return factory.createFigure(figureConstituents);
     }
