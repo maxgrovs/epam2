@@ -1,4 +1,4 @@
-package homeWork.task_3.com.epam.jwd.service.impl.specification;
+package testApp.service;
 
 
 public class Specification {
@@ -9,7 +9,7 @@ public class Specification {
     private double withAreaGreaterThan;
 
 
-    public Specification(String findFigure, String name,  double withAreaGreaterThan) {
+    public Specification(String findFigure, String name, double withAreaGreaterThan) {
         this.findFigure = findFigure;
         this.name = name;
         this.withAreaGreaterThan = withAreaGreaterThan;
@@ -49,13 +49,13 @@ public class Specification {
 
     public static class Builder {
 
-        private String figure;
+        private String findFigure;
         private String name;
         private double greaterThenArea;
 
 
-        public Builder figure(String figure) {
-            this.figure = figure;
+        public Builder findFigure(String figure) {
+            this.findFigure = figure;
             return this;
         }
 
@@ -72,7 +72,7 @@ public class Specification {
 
         public Specification build() {
 
-            return new Specification(this.figure, this.name,  this.greaterThenArea);
+            return new Specification(this.findFigure, this.name,  this.greaterThenArea);
         }
 
     }

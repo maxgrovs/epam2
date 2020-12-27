@@ -68,7 +68,7 @@ public class UniversalFigureService<T extends Figure> implements FigureService<T
     @Override
     public List<Figure> findBySpecification(Specification specification) {
         return   storage.getFigures().stream()
-                .filter(figure -> figure.getClass().equals(specification.getClass()))
+                .filter(figure -> figure.getClass().getSimpleName().equals(specification.getFindFigure()))
                 .filter(figure -> calcArea(figure) > specification.getWithAreaGreaterThan())
                 .collect(Collectors.toList());
     }

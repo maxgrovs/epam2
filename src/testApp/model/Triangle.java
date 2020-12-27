@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Triangle extends Figure {
 
-    public Triangle(Point point, Point point1, Point point2) {
+   public Triangle(Point point, Point point1, Point point2) {
         this.points = Arrays.asList(point, point1, point2);
 
         recalculateProperties();
@@ -21,5 +21,12 @@ public class Triangle extends Figure {
 
         final double p = perimeter / 2.0;
         area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "points=" + points +
+                '}';
     }
 }

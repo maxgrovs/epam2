@@ -33,13 +33,13 @@ public class FigureRunner {
         // triangleService.delete(figure1);
 
 
-        Specification specification = Specification.builder().figure(TRIANGLE.getClass()).greaterThenArea(50).build();
+        Specification specification = Specification.builder().figure("Triangle").greaterThenArea(1).build();
 
         List bySpecification = service.findBySpecification(specification);
 
-        // System.out.println(list);
+         System.out.println(bySpecification);
 
-        System.out.println(service.calcArea(figure));
+        //System.out.println(service.calcArea(figure));
 
     }
 

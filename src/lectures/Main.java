@@ -3,7 +3,7 @@ package lectures;
 
 
 import homeWork.task_2.com.epam.jwd.service.impl.PostProcessor;
-import newTask.com.epam.jwd.model.Figure;
+import homeWork.task_3.com.epam.jwd.model.Figure;
 
 
 import java.util.*;

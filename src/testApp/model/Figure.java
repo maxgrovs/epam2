@@ -13,9 +13,7 @@ public abstract class Figure {
         return points;
     }
 
-    public void setPoints(List<Point> points) {
-        this.points = points;
-    }
+    protected abstract void recalculateProperties();
 
     public double getArea() {
         return area;
@@ -33,5 +31,4 @@ public abstract class Figure {
         return Math.hypot(ac, cb);
     }
 
-    protected abstract void recalculateProperties();
 }
