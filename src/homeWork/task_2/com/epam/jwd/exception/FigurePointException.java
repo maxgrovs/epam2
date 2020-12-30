@@ -1,9 +1,0 @@
-package homeWork.task_2.com.epam.jwd.exception;
-
-public class FigurePointException extends FigureException {
-
-    public FigurePointException(String message) {
-
-        super(message);
-    }
-}
