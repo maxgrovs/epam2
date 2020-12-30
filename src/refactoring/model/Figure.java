@@ -9,6 +9,9 @@ public abstract class Figure {
 
     protected List<Point> points;
 
+    public Figure() {
+    }
+
     public List<Point> getPoints() {
         return points;
     }
