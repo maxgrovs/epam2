@@ -1,6 +1,6 @@
-package homeWork.task_0.app;
+package lectures.task_0.app;
 
-import homeWork.task_0.model.Point;
+import lectures.task_0.model.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

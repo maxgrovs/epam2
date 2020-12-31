@@ -1,4 +1,4 @@
-package homeWork.task_0.model;
+package lectures.task_0.model;
 
 import java.util.Objects;
 
